@@ -1,10 +1,3 @@
-/**
- * Various tweaks to the Read the Docs theme to better conform with Godot's
- * visual identity. Many colors are also overridden to use CSS variables.
- * This makes it possible to provide an automatically-used dark theme
- * based on browser preferences.
- */
-
  /* Default (light) theme colors */
  :root {
     --body-color: #404040;
@@ -139,7 +132,6 @@
         --search-credits-color: #6b6b6b; /* derived from --footer-color */
         --search-credits-link-color: #628fb1; /* derived from --link-color */
 
-        /* Colors taken from the Godot script editor with the Adaptive theme */
         --highlight-background-color: #202531;
         --highlight-background-emph-color: #2d3444;
         --highlight-default-color: rgba(255, 255, 255, 0.85);
