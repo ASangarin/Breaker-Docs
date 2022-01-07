@@ -1,7 +1,7 @@
-.. _doc_states_mmoitems:
+.. _doc_mechanics_triggers:
 
-MMOItems States
-===============
+Triggers
+================
 
 ::
 

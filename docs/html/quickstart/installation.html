@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Configuration" href="configuration.html" />
-    <link rel="prev" title="Breaker Docs - v2.0" href="../index.html" /> 
+    <link rel="prev" title="Home" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,23 +47,32 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#lessor-title">Lessor Title</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#minor-title">Minor Title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-compatible-plugins">List of Compatible Plugins</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration-basics">Configuration Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html#block-configurations">Block Configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html#example-config-file">Example Config File</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuring-the-block-provider">Configuring the Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuring-the-hardness">Configuring the Hardness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuring-the-states">Configuring the States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuring-the-triggers">Configuring the Triggers</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="important.html">Important Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="externalplugins.html">External Plugins</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Mechanics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/hardness.html">Hardness</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/providers.html">Block Providers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/states.html">States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/triggers.html">Triggers</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">States</span></p>
+<p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../states/external.html">External Plugin States</a><ul>
@@ -71,7 +80,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/providers.html">Providers [API]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/states.html">States [API]</a></li>
@@ -103,54 +112,31 @@
              
   <section id="installation">
 <span id="doc-quickstart-installation"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>func _ready():
-    $Label.text = &quot;Hello world!&quot;
-</pre></div>
+<div class="line-block">
+<div class="line">To get started, you first have to install Breaker.</div>
+<div class="line">This is done the same way that you install any other plugin.</div>
 </div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>To learn more about GDScript, its keywords, and its syntax, head to
-the <a class="reference internal" href="important.html#doc-quickstart-important"><span class="std std-ref">GDScript reference</span></a>.</p>
-</div>
-<section id="lessor-title">
-<h2>Lessor Title<a class="headerlink" href="#lessor-title" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><p>Test1</p></li>
-<li><p>Test2</p></li>
-<li><p>Test3</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">red</span> <span class="o">=</span> <span class="n">Color8</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
+<ol class="arabic simple">
+<li><p>Download the latest <code class="docutils literal notranslate"><span class="pre">Breaker.jar</span></code> from <a class="reference external" href="https://www.spigotmc.org/">Spigot</a></p></li>
+<li><p>Breaker depends on <a class="reference external" href="https://mythiccraft.io/index.php?pages/official-mythiclib-dev/">MythicLib</a>, so make sure you get the latest dev build of that.</p></li>
+<li><p>Drop both jar files into your servers plugin folder.</p></li>
+</ol>
+<p>You should now be ready to start <a class="reference internal" href="configuration.html#doc-quickstart-configuration"><span class="std std-ref">configuring</span></a>.</p>
 <hr class="docutils" />
-<p>Lorem <code class="docutils literal notranslate"><span class="pre">ipsum</span></code> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p><a class="reference internal" href="important.html#doc-quickstart-important"><span class="std std-ref">in the introduction</span></a></p>
+<p>You can also install any of the compatible plugins below to get access to more features.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>In the code editor, you can ctrl-click on any built-in property or
-function like <code class="docutils literal notranslate"><span class="pre">position</span></code>, <code class="docutils literal notranslate"><span class="pre">rotation</span></code>, or <code class="docutils literal notranslate"><span class="pre">_process</span></code> to open the
-corresponding documentation in a new tab.</p>
+<p>You can read more about external plugin features <a class="reference internal" href="externalplugins.html#doc-quickstart-external"><span class="std std-ref">here</span></a>.</p>
 </div>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 38%" />
-<col style="width: 63%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Ara Ara</p></td>
-<td><p>Seduction</p></td>
-</tr>
-<tr class="row-even"><td><p>Muda Muda</p></td>
-<td><p>Futile</p></td>
-</tr>
-</tbody>
-</table>
-<section id="minor-title">
-<h3>Minor Title<a class="headerlink" href="#minor-title" title="Permalink to this headline"></a></h3>
-</section>
+<section id="list-of-compatible-plugins">
+<h2>List of Compatible Plugins<a class="headerlink" href="#list-of-compatible-plugins" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mythiccraft.io/index.php?resources/mmocore.395/">MMOCore</a></p></li>
+<li><p><a class="reference external" href="https://mythiccraft.io/index.php?resources/mmoitems.393/">MMOItems</a></p></li>
+<li><p><a class="reference external" href="https://mythiccraft.io/index.php?resources/mythicmobs.1/">MythicMobs</a></p></li>
+<li><p><a class="reference external" href="https://www.spigotmc.org/resources/vault.34315/">Vault</a></p></li>
+<li><p><a class="reference external" href="https://dev.bukkit.org/projects/worldguard">WorldGuard</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -158,7 +144,7 @@ corresponding documentation in a new tab.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Breaker Docs - v2.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Home" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

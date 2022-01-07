@@ -1,7 +1,7 @@
-.. _doc_states_mmoitems:
+.. _doc_quickstart_important:
 
-MMOItems States
-===============
+Important Information
+=====================
 
 ::
 

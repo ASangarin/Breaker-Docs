@@ -47,23 +47,32 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#lessor-title">Lessor Title</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="installation.html#minor-title">Minor Title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#list-of-compatible-plugins">List of Compatible Plugins</a></li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-basics">Configuration Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#block-configurations">Block Configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-config-file">Example Config File</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-the-block-provider">Configuring the Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-the-hardness">Configuring the Hardness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-the-states">Configuring the States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-the-triggers">Configuring the Triggers</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="important.html">Important Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="externalplugins.html">External Plugins</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Mechanics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/hardness.html">Hardness</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/providers.html">Block Providers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/states.html">States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/triggers.html">Triggers</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">States</span></p>
+<p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../states/external.html">External Plugin States</a><ul>
@@ -71,7 +80,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/providers.html">Providers [API]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/states.html">States [API]</a></li>
@@ -103,14 +112,124 @@
              
   <section id="configuration">
 <span id="doc-quickstart-configuration"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>func _ready():
-    $Label.text = &quot;Hello world!&quot;
+<p>Breaker allows you to change the breaking speeds of almost any block you desire.
+The plugin has a lot of flexibility/customization and therefore can seem complex, but it should be relatively simple once you get the hang of things.
+This page of the docs will guide you through key-terms, link you to relevant pages and describe carefully how to modify the breaking speeds to your liking.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line"><strong>Fun Fact:</strong> Breaker Legacy used to have a much more confusing configuration syntax.</div>
+<div class="line">Luckily, the current syntax is much like the MythicMobs syntax and therefore should make things a bit easier to learn!</div>
+</div>
+</div>
+<section id="configuration-basics">
+<h2>Configuration Basics<a class="headerlink" href="#configuration-basics" title="Permalink to this headline"></a></h2>
+<p>How does the configuration work? To understand this we need a short introduction to Breakers calculations.</p>
+<div class="line-block">
+<div class="line">Each configuration contains four core mechanics.</div>
+<div class="line">Those mechanics are <code class="docutils literal notranslate"><span class="pre">Block</span> <span class="pre">Providers</span></code>, <code class="docutils literal notranslate"><span class="pre">Hardness</span></code>, <code class="docutils literal notranslate"><span class="pre">States</span></code> and <code class="docutils literal notranslate"><span class="pre">Triggers</span></code>.</div>
+</div>
+<ul>
+<li><div class="line-block">
+<div class="line"><a class="reference internal" href="../mechanics/providers.html#doc-mechanics-providers"><span class="std std-ref">Block Providers</span></a> are what will link your configurations with actual blocks. The most common one is the <strong>Material Provider</strong> which lets you add configurations to individual block types. There are a few <abbr title="External plugins may also add new providers">other providers</abbr> available, which are all documented on the Block Providers page.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><a class="reference internal" href="../mechanics/hardness.html#doc-mechanics-hardness"><span class="std std-ref">Hardness</span></a> is the system that determines how long it takes to break your blocks. This value is then modified by <strong>States</strong>, which makes it dynamic and customizable.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><a class="reference internal" href="../mechanics/states.html#doc-mechanics-states"><span class="std std-ref">States</span></a> are conditions that can change the blocks <strong>Hardness</strong> when they’re met. There are a ton of States available, both <a class="reference internal" href="../states/builtin.html#doc-states-builtin"><span class="std std-ref">provided by breaker</span></a> and <a class="reference internal" href="../states/external.html#doc-states-external"><span class="std std-ref">by external plugins</span></a>.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><a class="reference internal" href="../mechanics/triggers.html#doc-mechanics-triggers"><span class="std std-ref">Triggers</span></a> are… Well. <em>Triggers</em>. You can specify certain things to happen when the player interacts with a configured block. This ranges from <em>running commands</em> after breaking a block, or running a <abbr title="An external plugin">MythicMobs</abbr> skill if the player stops mining without breaking the block.</div>
+</div>
+</li>
+</ul>
+<section id="block-configurations">
+<h3>Block Configurations<a class="headerlink" href="#block-configurations" title="Permalink to this headline"></a></h3>
+<p>Breaker loads any <code class="docutils literal notranslate"><span class="pre">.yml</span></code> configuration file inside the <code class="docutils literal notranslate"><span class="pre">blocks</span></code> folder (inside <code class="docutils literal notranslate"><span class="pre">plugins/Breaker</span></code>) and loads it into the
+<abbr title="This is where Breaker stores the data for each block you configure.">Breaker Database</abbr>. Breaker will list any errors with your configuration in the console.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It doesn’t matter what you name your <code class="docutils literal notranslate"><span class="pre">.yml</span></code> file. Only the contents of the file needs to follow the syntax, but try not to use any special characters while naming your files.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can add as many files as you want and Breaker will automatically load any files you place in subfolders. This allows you to organize your configs however you would like.</p>
+</div>
+</section>
+<section id="example-config-file">
+<h3>Example Config File<a class="headerlink" href="#example-config-file" title="Permalink to this headline"></a></h3>
+<div class="line-block">
+<div class="line">Let’s go through the basics of each <code class="docutils literal notranslate"><span class="pre">.yml</span></code> file.</div>
+<div class="line">Have a look at this example file:</div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IRON_BLOCK</span><span class="w"> </span><span class="c1"># The base block to modify.</span><span class="w"></span>
+
+<span class="nt">breaking-time</span><span class="p">:</span><span class="w"> </span><span class="c1"># This value is in ticks!</span><span class="w"></span>
+<span class="w">  </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"> </span><span class="c1"># The maximum amount of ticks it should take to break the block</span><span class="w"></span>
+<span class="w">  </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"> </span><span class="c1"># The minimum amount of ticks it should take to break the block</span><span class="w"></span>
+<span class="w">  </span><span class="nt">base</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w"> </span><span class="c1"># This value is optional! If not specified, the base value will use the max breaking time.</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># The base value is the time it takes to break the block if no states have activated.</span><span class="w"></span>
+
+<span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="c1"># Please refer to &quot;Configuring States&quot;</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">helditem{type=diamond_pickaxe;value=5}</span><span class="w"> </span><span class="c1"># Will subtract 5 ticks from the breaking time.</span><span class="w"></span>
+<span class="c1"># But only if the player is holding a Diamond Pickaxe.</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sneaking{value=10}</span><span class="w"> </span><span class="c1"># Will subtract 3 ticks from the breaking time.</span><span class="w"></span>
+<span class="c1"># If both of the above states activate then the total breaking time in ticks will become 5, since</span><span class="w"></span>
+<span class="c1"># the base value is 20 and the helditem state subtracts 5 ticks and the sneaking state subtracts 10 ticks.</span><span class="w"></span>
+<span class="c1"># &#39;20 - 5 - 10 = 5&#39; (Note, the minimum is also set to 5, so it can&#39;t go lower than that)</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">helditem{type=iron_pickaxe}</span><span class="w"> </span><span class="c1"># Will use the default &quot;value&quot; of &#39;1&#39;</span><span class="w"></span>
+
+<span class="nt">triggers</span><span class="p">:</span><span class="w"> </span><span class="c1"># Please refer to &quot;Configuring Triggers&quot;</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">break{command=say I broke a block!}</span><span class="w"></span>
+<span class="c1"># This trigger will execute the command &quot;say I broke a block!&quot;</span><span class="w"></span>
+<span class="c1"># when the player finishes breaking the block.</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">start{skill=MyThiccSkill}</span><span class="w"> </span><span class="c1"># - - - Using a skill requires MythicMobs - - -</span><span class="w"></span>
+<span class="c1"># This trigger will execute a MythicMobs skill called &quot;MyThiccSkill&quot;</span><span class="w"></span>
+<span class="c1"># when the player starts breaking the block (if the skill can be found).</span><span class="w"></span>
+
+<span class="c1"># Possible triggers are: &#39;start&#39;, &#39;stop&#39;, &#39;break&#39; or &#39;abort&#39;</span><span class="w"></span>
+<span class="c1"># Possible functions are: &#39;skill&#39;, &#39;command&#39;, &#39;event&#39;</span><span class="w"></span>
 </pre></div>
 </div>
+</section>
+</section>
+<section id="configuring-the-block-provider">
+<h2>Configuring the Block Provider<a class="headerlink" href="#configuring-the-block-provider" title="Permalink to this headline"></a></h2>
+<p>The first line <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">IRON_BLOCK</span></code> represents the <a class="reference internal" href="../mechanics/providers.html#doc-mechanics-providers"><span class="std std-ref">Block Provider</span></a> and is currently using the Material provider.
+For example, setting this as <code class="docutils literal notranslate"><span class="pre">GOLD_BLOCK</span></code> will make all Gold Blocks use this configuration for their breaking times (Instead of Iron Blocks as seen in the example).</p>
+<p>For a better understanding of how to configure this, please see the <a class="reference internal" href="../mechanics/providers.html#doc-mechanics-providers"><span class="std std-ref">Block Provider</span></a> page.</p>
+</section>
+<section id="configuring-the-hardness">
+<h2>Configuring the Hardness<a class="headerlink" href="#configuring-the-hardness" title="Permalink to this headline"></a></h2>
+<p>The next section (<code class="docutils literal notranslate"><span class="pre">breaking-time:</span></code>) determines how long it takes to break the block. You need to configure <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">base</span></code>.</p>
+<ul class="simple">
+<li><p><strong>max</strong>: This is the absolute longest it will ever take to break this block. No matter how states are configured the breaking time will never be longer than this.</p></li>
+<li><p><strong>min</strong>: This is the absolute shortest it will ever take to break this block. No matter how states are configured the breaking time will never be shorter than this.</p></li>
+<li><p><strong>base</strong>: This is how long it will take to break the block when no states have been activated.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Hardness is measured in ticks. 20 ticks is the same as 1 second.</p>
+</div>
+</section>
+<section id="configuring-the-states">
+<h2>Configuring the States<a class="headerlink" href="#configuring-the-states" title="Permalink to this headline"></a></h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</section>
+<section id="configuring-the-triggers">
+<h2>Configuring the Triggers<a class="headerlink" href="#configuring-the-triggers" title="Permalink to this headline"></a></h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</section>
 </section>
 
 

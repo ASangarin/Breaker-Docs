@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Breaker Docs - v2.0 &mdash; Breaker Official Docs 1 documentation</title>
+  <title>Home &mdash; Breaker Official Docs 1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/algolia.css" type="text/css" />
@@ -46,23 +46,32 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart/installation.html#lessor-title">Lessor Title</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="quickstart/installation.html#minor-title">Minor Title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/installation.html#list-of-compatible-plugins">List of Compatible Plugins</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/configuration.html#configuration-basics">Configuration Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quickstart/configuration.html#block-configurations">Block Configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quickstart/configuration.html#example-config-file">Example Config File</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/configuration.html#configuring-the-block-provider">Configuring the Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/configuration.html#configuring-the-hardness">Configuring the Hardness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/configuration.html#configuring-the-states">Configuring the States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/configuration.html#configuring-the-triggers">Configuring the Triggers</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/important.html">Important Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/externalplugins.html">External Plugins</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Mechanics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mechanics/hardness.html">Hardness</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mechanics/providers.html">Block Providers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mechanics/states.html">States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mechanics/triggers.html">Triggers</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">States</span></p>
+<p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="states/builtin.html">Built-In States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states/external.html">External Plugin States</a><ul>
@@ -70,7 +79,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api/providers.html">Providers [API]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/states.html">States [API]</a></li>
@@ -91,7 +100,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>Breaker Docs - v2.0</li>
+      <li>Home</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -100,19 +109,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="breaker-docs-v2-0">
-<h1>Breaker Docs - v2.0<a class="headerlink" href="#breaker-docs-v2-0" title="Permalink to this headline"></a></h1>
-<p>(Docs v1.0)</p>
+  <section id="home">
+<h1>Home<a class="headerlink" href="#home" title="Permalink to this headline"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Last updated <code class="docutils literal notranslate"><span class="pre">Jan</span> <span class="pre">6th,</span> <span class="pre">2022</span></code> - version 1</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Remember to backup/delete your <code class="docutils literal notranslate"><span class="pre">plugins/Breaker</span></code> folder when upgrading from Legacy Breaker!
+Old configs won’t work on Breaker 2.0, but can be used as reference when setting up.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These docs are still being written! These pages are far from complete and can therefore be inaccurate.
+Please proceed with caution.</p>
+</div>
+<section id="what-is-breaker">
+<h2>What is Breaker?<a class="headerlink" href="#what-is-breaker" title="Permalink to this headline"></a></h2>
+<p>Breaker is a free, yet powerful Spigot plugin which lets you set block-breaking speeds for blocks to whatever you’d like.
+Want to mine Obsidian quicker? Breaker. Want to make certain wood types harder than others? Breaker can do it.
+Breaker also features systems such as conditions (called states) for reducing break speed and triggers for making things happen.
+This documentation contains information about everything that Breaker has to offer.</p>
+<p>Get Breaker at <a class="reference external" href="https://www.spigotmc.org/">SpigotMC</a>.</p>
+<p>Browse through the Breaker documentation:</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/important.html">Important Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/externalplugins.html">External Plugins</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Mechanics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mechanics/hardness.html">Hardness</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mechanics/providers.html">Block Providers</a></li>
@@ -121,21 +152,21 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">States</span></p>
+<p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="states/builtin.html">Built-In States</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states/external.html">External Plugin States</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api/providers.html">Providers [API]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/states.html">States [API]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/triggers.html">Triggers [API]</a></li>
 </ul>
 </div>
-<p>yare yare</p>
+</section>
 </section>
 
 

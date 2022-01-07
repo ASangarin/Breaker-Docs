@@ -1,6 +1,6 @@
-.. _doc_states_mmoitems:
+.. _doc_mechanics_providers:
 
-MMOItems States
+Block Providers
 ===============
 
 ::

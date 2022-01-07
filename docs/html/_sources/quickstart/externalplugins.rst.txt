@@ -1,7 +1,7 @@
-.. _doc_states_mmoitems:
+.. _doc_quickstart_external:
 
-MMOItems States
-===============
+External Plugins
+=====================
 
 ::
 
