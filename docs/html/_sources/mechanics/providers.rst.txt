@@ -43,15 +43,20 @@ You can also `create your own datapack <https://minecraft.fandom.com/wiki/Tutori
 Player Head Block Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: NOT YET IMPLEMENTED!
+The **Player Head Block Provider** allows you to add configuration to unique player heads.
+This system utilizes the "texture value" of the heads properties.
+To configure this, simply input ``SKULL_`` followed by the value of the specific skull texture you want to use.
 
-.. note:: **Example**: ``block: SKULL-eyJ0ZXh0d...`` (Shortened)
+.. note:: **Example**: ``block: SKULL_eyJ0ZXh0d...`` (Shortened)
 
 ----
 
 MMOItems Block Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: NOT YET IMPLEMENTED!
+**Requires MMOItems**
+
+The **MMOItems Block Provider** will allow you to add configuration to MMOItems Custom Blocks.
+Simply input ``MMOITEMS_`` followed by the numeric ID assigned to your block.
 
 .. note:: **Example**: ``block: MMOITEMS_13``
