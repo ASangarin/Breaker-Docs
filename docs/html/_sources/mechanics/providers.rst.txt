@@ -54,7 +54,7 @@ To configure this, simply input ``SKULL_`` followed by the value of the specific
 MMOItems Block Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Requires MMOItems**
+.. warning:: Requires MMOItems
 
 The **MMOItems Block Provider** will allow you to add configuration to MMOItems Custom Blocks.
 Simply input ``MMOITEMS_`` followed by the numeric ID assigned to your block.
