@@ -54,7 +54,7 @@ To configure this, simply input ``SKULL_`` followed by the value of the specific
 MMOItems Block Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: Requires MMOItems
+.. warning:: Requires `MMOItems <https://mythiccraft.io/index.php?resources/mmoitems.393/>`_
 
 The **MMOItems Block Provider** will allow you to add configuration to MMOItems Custom Blocks.
 Simply input ``MMOITEMS_`` followed by the numeric ID assigned to your block.
