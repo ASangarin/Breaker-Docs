@@ -3,12 +3,17 @@
 External Plugins
 =====================
 
-::
+.. note:: You simply need to install a compatible plugin and Breaker will automatically hook onto it!
 
-    func _ready():
-        $Label.text = "Hello world!"
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- | **MMOItems**:
+  | Using the :ref:`MMOStatState or NBTState <doc_states_builtin>` you can check for the NBT of a unique MMOItem or the players specific stat level.
+- | **MMOCore**:
+  | MMOCore provides a few :ref:`states <states_mmocore>` related to features like level, experience, professions, classes and more.
+- | **MythicMobs**:
+  | MythicMobs provides a few :ref:`advanced states <states_mythicmobs>` and a new :ref:`trigger function <doc_mechanics_triggers>`.
+- | **TechTree**:
+  | Vault provides a simple :ref:`techentry state <state_techentry>` to check if a player has unlocked a specific entry.
+- | **Vault**:
+  | Vault provides a simple :ref:`money state <state_money>` to check against a players vault balance.
+- | **WorldGuard**:
+  | WG provides not only a :ref:`Region State <state_region>`, but also allows you to use the "*Region Rules*". For more information about this, please see Breaker's ``config.yml`` file.

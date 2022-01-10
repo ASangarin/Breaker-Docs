@@ -67,15 +67,35 @@
 <p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mechanics/hardness.html">Hardness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mechanics/providers.html">Block Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mechanics/states.html">States</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mechanics/triggers.html">Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mechanics/providers.html">Block Providers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mechanics/providers.html#material-block-provider">Material Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mechanics/providers.html#tag-block-provider">Tag Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mechanics/providers.html#player-head-block-provider">Player Head Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mechanics/providers.html#mmoitems-block-provider">MMOItems Block Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mechanics/states.html">States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mechanics/states.html#available-states">Available States</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mechanics/triggers.html">Triggers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mechanics/triggers.html#trigger-types">Trigger Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mechanics/triggers.html#trigger-functions">Trigger Functions</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="states/builtin.html">Built-In States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="states/builtin.html">Built-In States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="states/builtin.html#descriptions">Descriptions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="states/external.html">External Plugin States</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="states/external/mmoitems.html">MMOItems States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="states/external.html#mmocore">MMOCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="states/external.html#mythicmobs">MythicMobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="states/external.html#techtree">TechTree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="states/external.html#vault">Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="states/external.html#worldguard">WorldGuard</a></li>
 </ul>
 </li>
 </ul>
@@ -113,17 +133,12 @@
 <h1>Home<a class="headerlink" href="#home" title="Permalink to this headline"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Last updated <code class="docutils literal notranslate"><span class="pre">Jan</span> <span class="pre">6th,</span> <span class="pre">2022</span></code> - version 1</p>
+<p>Last updated <code class="docutils literal notranslate"><span class="pre">Jan</span> <span class="pre">6th,</span> <span class="pre">2022</span></code> - version 1.1</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Remember to backup/delete your <code class="docutils literal notranslate"><span class="pre">plugins/Breaker</span></code> folder when upgrading from Legacy Breaker!
 Old configs won’t work on Breaker 2.0, but can be used as reference when setting up.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>These docs are still being written! These pages are far from complete and can therefore be inaccurate.
-Please proceed with caution.</p>
 </div>
 <section id="what-is-breaker">
 <h2>What is Breaker?<a class="headerlink" href="#what-is-breaker" title="Permalink to this headline"></a></h2>
@@ -131,7 +146,7 @@ Please proceed with caution.</p>
 Want to mine Obsidian quicker? Breaker. Want to make certain wood types harder than others? Breaker can do it.
 Breaker also features systems such as conditions (called states) for reducing break speed and triggers for making things happen.
 This documentation contains information about everything that Breaker has to offer.</p>
-<p>Get Breaker at <a class="reference external" href="https://www.spigotmc.org/">SpigotMC</a>.</p>
+<p>Get Breaker at <a class="reference external" href="https://www.spigotmc.org/resources/breaker-2-configurable-breaking-speeds-1-16-1-18.99022/">SpigotMC</a>.</p>
 <p>Browse through the Breaker documentation:</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>

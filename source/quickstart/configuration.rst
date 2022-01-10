@@ -10,10 +10,13 @@ This page of the docs will guide you through key-terms, link you to relevant pag
 .. note:: | **Fun Fact:** Breaker Legacy used to have a much more confusing configuration syntax.
           | Luckily, the current syntax is much like the MythicMobs syntax and therefore should make things a bit easier to learn!
 
+-------------------------
+
 Configuration Basics
 ----------------------
 
-How does the configuration work? To understand this we need a short introduction to Breakers calculations.
+How does the configuration work? To understand this we need a short introduction to Breakers calculations
+and how how it affects the breaking speeds.
 
 | Each configuration contains four core mechanics.
 | Those mechanics are ``Block Providers``, ``Hardness``, ``States`` and ``Triggers``.
@@ -45,11 +48,11 @@ Example Config File
 
     block: IRON_BLOCK # The base block to modify.
     
-    breaking-time: # This value is in ticks!
-      max: 30 # The maximum amount of ticks it should take to break the block
-      min: 5 # The minimum amount of ticks it should take to break the block
+    hardness: # This value is in ticks!
       base: 20 # This value is optional! If not specified, the base value will use the max breaking time.
       # The base value is the time it takes to break the block if no states have activated.
+      min: 5 # The minimum amount of ticks it should take to break the block
+      max: 30 # The maximum amount of ticks it should take to break the block
     
     states: # Please refer to "Configuring States"
     - helditem{type=diamond_pickaxe;value=5} # Will subtract 5 ticks from the breaking time.
@@ -71,6 +74,8 @@ Example Config File
     # Possible triggers are: 'start', 'stop', 'break' or 'abort'
     # Possible functions are: 'skill', 'command', 'event'
 
+----------------------------
+
 Configuring the Block Provider
 ----------------------------------
 
@@ -79,10 +84,14 @@ For example, setting this as ``GOLD_BLOCK`` will make all Gold Blocks use this c
 
 For a better understanding of how to configure this, please see the :ref:`Block Provider <doc_mechanics_providers>` page.
 
+-----------------------------
+
+.. _doc_quickstart_configuration_hardness:
+
 Configuring the Hardness
 -------------------------
 
-The next section (``breaking-time:``) determines how long it takes to break the block. You need to configure ``max``, ``min`` and ``base``.
+The next section (``hardness:``) determines how long it takes to break the block. You need to configure ``max``, ``min`` and ``base``.
 
 - **max**: This is the absolute longest it will ever take to break this block. No matter how states are configured the breaking time will never be longer than this.
 - **min**: This is the absolute shortest it will ever take to break this block. No matter how states are configured the breaking time will never be shorter than this.
@@ -90,17 +99,49 @@ The next section (``breaking-time:``) determines how long it takes to break the 
 
 .. tip:: Hardness is measured in ticks. 20 ticks is the same as 1 second.
 
+-------------------------
+
+.. _doc_quickstart_configuration_states:
+
 Configuring the States
 ----------------------
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+.. note:: See :ref:`Built-In States <doc_states_builtin>` or :ref:`External Plugin States <doc_states_external>` for a list of usable state types.
+
+The ``states:`` part of the configuration contains a :abbr:`list (YAML Format)` of conditions that change the breaking value if met.
+The syntax for states is ``statetype{argument=value;argument2=othervalue;}``
+
+``statetype`` is replaced with what kind of condition you want.
+Arguments change depending on which state type you use. There are two arguments that will work in any state.
+
+- The first is ``value`` (*default = 1*), which change how much the condition should change the breaking speed. For example, if the blocks current **Hardness** is :abbr:`20 (The configured base hardness)` and you have a value of :abbr:`5 (The value of the state)`, the final **Hardness** will be :abbr:`15 (20 - 5 = 15)` if the condition is met.
+- The second is ``required`` (*default = false*), which will make the block unbreakable if the condition isn't met. All *required* states must be met before a block becomes breakable.
+
+.. tip:: | You don't have to specify either ``value`` or ``required``.
+         | If they are not present in your state configuration, Breaker will merely use their default values. 
+
+| In the example we have ``helditem{type=diamond_pickaxe;value=5}``, using the Held Item State.
+| The argument provided is ``type=diamond_pickaxe``, which is a :abbr:`state-specifc argument (Read more about these types of arguments on the respective state page.)`.
+| The ``value`` determines how much :abbr:`faster (In ticks)` the block will be broken.
+
+This example makes the block break 5 ticks faster, if the player is holding a **Diamond Pickaxe**.
+
+---------------------------
+
+.. _doc_quickstart_configuration_triggers:
 
 Configuring the Triggers
-------------------------
+--------------------------
+.. note:: See :ref:`Triggers <doc_mechanics_triggers>` for a list of usable triggers and functions.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The ``triggers:`` part of the configuration contains a :abbr:`list (YAML Format)` of triggers that execute during block breaking.
+The syntax for triggers is ``triggertype{function=arg}``
+
+``triggertype`` is replaced with the type of trigger you want.
+The function determines *what* happens once the trigger activates. All functions take a string as argument.
+
+.. tip:: | ``start``, ``break`` and ``stop`` triggers all execute at the same time if a block is instantly broken.
+
+| In the example we have ``break{command="say I broke a block!"}``, using the break :abbr:`trigger type (Read more about trigger types on the trigger page.)`.
+| The :abbr:`function (Read more about functions on the trigger page.)` used is ``command``, which is configured to run ``say I broke a block!``.
+
+This example makes the player run the command: "*say I broke a block!*", **when** they break the block.

@@ -68,15 +68,35 @@
 <p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/hardness.html">Hardness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/providers.html">Block Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/states.html">States</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/triggers.html">Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/providers.html">Block Providers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#material-block-provider">Material Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#tag-block-provider">Tag Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#player-head-block-provider">Player Head Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#mmoitems-block-provider">MMOItems Block Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/states.html">States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/states.html#available-states">Available States</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/triggers.html">Triggers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/triggers.html#trigger-types">Trigger Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/triggers.html#trigger-functions">Trigger Functions</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../states/builtin.html#descriptions">Descriptions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../states/external.html">External Plugin States</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../states/external/mmoitems.html">MMOItems States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mmocore">MMOCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mythicmobs">MythicMobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#techtree">TechTree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#vault">Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#worldguard">WorldGuard</a></li>
 </ul>
 </li>
 </ul>
@@ -122,9 +142,11 @@ This page of the docs will guide you through key-terms, link you to relevant pag
 <div class="line">Luckily, the current syntax is much like the MythicMobs syntax and therefore should make things a bit easier to learn!</div>
 </div>
 </div>
+<hr class="docutils" />
 <section id="configuration-basics">
 <h2>Configuration Basics<a class="headerlink" href="#configuration-basics" title="Permalink to this headline"></a></h2>
-<p>How does the configuration work? To understand this we need a short introduction to Breakers calculations.</p>
+<p>How does the configuration work? To understand this we need a short introduction to Breakers calculations
+and how how it affects the breaking speeds.</p>
 <div class="line-block">
 <div class="line">Each configuration contains four core mechanics.</div>
 <div class="line">Those mechanics are <code class="docutils literal notranslate"><span class="pre">Block</span> <span class="pre">Providers</span></code>, <code class="docutils literal notranslate"><span class="pre">Hardness</span></code>, <code class="docutils literal notranslate"><span class="pre">States</span></code> and <code class="docutils literal notranslate"><span class="pre">Triggers</span></code>.</div>
@@ -168,11 +190,11 @@ This page of the docs will guide you through key-terms, link you to relevant pag
 </div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IRON_BLOCK</span><span class="w"> </span><span class="c1"># The base block to modify.</span><span class="w"></span>
 
-<span class="nt">breaking-time</span><span class="p">:</span><span class="w"> </span><span class="c1"># This value is in ticks!</span><span class="w"></span>
-<span class="w">  </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"> </span><span class="c1"># The maximum amount of ticks it should take to break the block</span><span class="w"></span>
-<span class="w">  </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"> </span><span class="c1"># The minimum amount of ticks it should take to break the block</span><span class="w"></span>
+<span class="nt">hardness</span><span class="p">:</span><span class="w"> </span><span class="c1"># This value is in ticks!</span><span class="w"></span>
 <span class="w">  </span><span class="nt">base</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w"> </span><span class="c1"># This value is optional! If not specified, the base value will use the max breaking time.</span><span class="w"></span>
 <span class="w">  </span><span class="c1"># The base value is the time it takes to break the block if no states have activated.</span><span class="w"></span>
+<span class="w">  </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"> </span><span class="c1"># The minimum amount of ticks it should take to break the block</span><span class="w"></span>
+<span class="w">  </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"> </span><span class="c1"># The maximum amount of ticks it should take to break the block</span><span class="w"></span>
 
 <span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="c1"># Please refer to &quot;Configuring States&quot;</span><span class="w"></span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">helditem{type=diamond_pickaxe;value=5}</span><span class="w"> </span><span class="c1"># Will subtract 5 ticks from the breaking time.</span><span class="w"></span>
@@ -197,15 +219,17 @@ This page of the docs will guide you through key-terms, link you to relevant pag
 </div>
 </section>
 </section>
+<hr class="docutils" />
 <section id="configuring-the-block-provider">
 <h2>Configuring the Block Provider<a class="headerlink" href="#configuring-the-block-provider" title="Permalink to this headline"></a></h2>
 <p>The first line <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">IRON_BLOCK</span></code> represents the <a class="reference internal" href="../mechanics/providers.html#doc-mechanics-providers"><span class="std std-ref">Block Provider</span></a> and is currently using the Material provider.
 For example, setting this as <code class="docutils literal notranslate"><span class="pre">GOLD_BLOCK</span></code> will make all Gold Blocks use this configuration for their breaking times (Instead of Iron Blocks as seen in the example).</p>
 <p>For a better understanding of how to configure this, please see the <a class="reference internal" href="../mechanics/providers.html#doc-mechanics-providers"><span class="std std-ref">Block Provider</span></a> page.</p>
+<hr class="docutils" />
 </section>
 <section id="configuring-the-hardness">
-<h2>Configuring the Hardness<a class="headerlink" href="#configuring-the-hardness" title="Permalink to this headline"></a></h2>
-<p>The next section (<code class="docutils literal notranslate"><span class="pre">breaking-time:</span></code>) determines how long it takes to break the block. You need to configure <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">base</span></code>.</p>
+<span id="doc-quickstart-configuration-hardness"></span><h2>Configuring the Hardness<a class="headerlink" href="#configuring-the-hardness" title="Permalink to this headline"></a></h2>
+<p>The next section (<code class="docutils literal notranslate"><span class="pre">hardness:</span></code>) determines how long it takes to break the block. You need to configure <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">base</span></code>.</p>
 <ul class="simple">
 <li><p><strong>max</strong>: This is the absolute longest it will ever take to break this block. No matter how states are configured the breaking time will never be longer than this.</p></li>
 <li><p><strong>min</strong>: This is the absolute shortest it will ever take to break this block. No matter how states are configured the breaking time will never be shorter than this.</p></li>
@@ -215,20 +239,58 @@ For example, setting this as <code class="docutils literal notranslate"><span cl
 <p class="admonition-title">Tip</p>
 <p>Hardness is measured in ticks. 20 ticks is the same as 1 second.</p>
 </div>
+<hr class="docutils" />
 </section>
 <section id="configuring-the-states">
-<h2>Configuring the States<a class="headerlink" href="#configuring-the-states" title="Permalink to this headline"></a></h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<span id="doc-quickstart-configuration-states"></span><h2>Configuring the States<a class="headerlink" href="#configuring-the-states" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a class="reference internal" href="../states/builtin.html#doc-states-builtin"><span class="std std-ref">Built-In States</span></a> or <a class="reference internal" href="../states/external.html#doc-states-external"><span class="std std-ref">External Plugin States</span></a> for a list of usable state types.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">states:</span></code> part of the configuration contains a <abbr title="YAML Format">list</abbr> of conditions that change the breaking value if met.
+The syntax for states is <code class="docutils literal notranslate"><span class="pre">statetype{argument=value;argument2=othervalue;}</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">statetype</span></code> is replaced with what kind of condition you want.
+Arguments change depending on which state type you use. There are two arguments that will work in any state.</p>
+<ul class="simple">
+<li><p>The first is <code class="docutils literal notranslate"><span class="pre">value</span></code> (<em>default = 1</em>), which change how much the condition should change the breaking speed. For example, if the blocks current <strong>Hardness</strong> is <abbr title="The configured base hardness">20</abbr> and you have a value of <abbr title="The value of the state">5</abbr>, the final <strong>Hardness</strong> will be <abbr title="20 - 5 = 15">15</abbr> if the condition is met.</p></li>
+<li><p>The second is <code class="docutils literal notranslate"><span class="pre">required</span></code> (<em>default = false</em>), which will make the block unbreakable if the condition isn’t met. All <em>required</em> states must be met before a block becomes breakable.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">You don’t have to specify either <code class="docutils literal notranslate"><span class="pre">value</span></code> or <code class="docutils literal notranslate"><span class="pre">required</span></code>.</div>
+<div class="line">If they are not present in your state configuration, Breaker will merely use their default values.</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">In the example we have <code class="docutils literal notranslate"><span class="pre">helditem{type=diamond_pickaxe;value=5}</span></code>, using the Held Item State.</div>
+<div class="line">The argument provided is <code class="docutils literal notranslate"><span class="pre">type=diamond_pickaxe</span></code>, which is a <abbr title="Read more about these types of arguments on the respective state page.">state-specifc argument</abbr>.</div>
+<div class="line">The <code class="docutils literal notranslate"><span class="pre">value</span></code> determines how much <abbr title="In ticks">faster</abbr> the block will be broken.</div>
+</div>
+<p>This example makes the block break 5 ticks faster, if the player is holding a <strong>Diamond Pickaxe</strong>.</p>
+<hr class="docutils" />
 </section>
 <section id="configuring-the-triggers">
-<h2>Configuring the Triggers<a class="headerlink" href="#configuring-the-triggers" title="Permalink to this headline"></a></h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<span id="doc-quickstart-configuration-triggers"></span><h2>Configuring the Triggers<a class="headerlink" href="#configuring-the-triggers" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a class="reference internal" href="../mechanics/triggers.html#doc-mechanics-triggers"><span class="std std-ref">Triggers</span></a> for a list of usable triggers and functions.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">triggers:</span></code> part of the configuration contains a <abbr title="YAML Format">list</abbr> of triggers that execute during block breaking.
+The syntax for triggers is <code class="docutils literal notranslate"><span class="pre">triggertype{function=arg}</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">triggertype</span></code> is replaced with the type of trigger you want.
+The function determines <em>what</em> happens once the trigger activates. All functions take a string as argument.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">stop</span></code> triggers all execute at the same time if a block is instantly broken.</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">In the example we have <code class="docutils literal notranslate"><span class="pre">break{command=&quot;say</span> <span class="pre">I</span> <span class="pre">broke</span> <span class="pre">a</span> <span class="pre">block!&quot;}</span></code>, using the break <abbr title="Read more about trigger types on the trigger page.">trigger type</abbr>.</div>
+<div class="line">The <abbr title="Read more about functions on the trigger page.">function</abbr> used is <code class="docutils literal notranslate"><span class="pre">command</span></code>, which is configured to run <code class="docutils literal notranslate"><span class="pre">say</span> <span class="pre">I</span> <span class="pre">broke</span> <span class="pre">a</span> <span class="pre">block!</span></code>.</div>
+</div>
+<p>This example makes the player run the command: “<em>say I broke a block!</em>”, <strong>when</strong> they break the block.</p>
 </section>
 </section>
 

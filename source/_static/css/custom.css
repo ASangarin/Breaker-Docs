@@ -72,6 +72,11 @@
     --admonition-tip-color: #404040;
     --admonition-tip-title-background-color: #1abc9c;
     --admonition-tip-title-color: #fff;
+	
+    --admonition-quote-background-color: #593a68;
+    --admonition-quote-color: #d1c7e2;
+    --admonition-quote-title-background-color: #a157c6;
+    --admonition-quote-title-color: #fff;
 
     --kbd-background-color: #fafbfc;
     --kbd-outline-color: #d1d5da;
@@ -748,6 +753,20 @@ code,
 .rst-content .admonition.important .admonition-title {
     background-color: var(--admonition-tip-title-background-color);
     color: var(--admonition-tip-title-color);
+}
+
+.rst-content .admonition-ref-configuring-the-hardness-doc-quickstart-configuration-hardness.admonition,
+.rst-content .admonition-ref-configuring-the-triggers-doc-quickstart-configuration-triggers.admonition,
+.rst-content .admonition-ref-configuring-the-states-doc-quickstart-configuration-states.admonition {
+    background-color: var(--admonition-quote-background-color);
+    color: var(--admonition-quote-color);
+}
+
+.rst-content .admonition-ref-configuring-the-hardness-doc-quickstart-configuration-hardness.admonition .admonition-title,
+.rst-content .admonition-ref-configuring-the-triggers-doc-quickstart-configuration-triggers.admonition .admonition-title,
+.rst-content .admonition-ref-configuring-the-states-doc-quickstart-configuration-states.admonition .admonition-title {
+    background-color: var(--admonition-quote-title-background-color);
+    color: var(--admonition-quote-title-color);
 }
 
 /* Keyboard shortcuts tweaks */

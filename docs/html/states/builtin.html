@@ -68,15 +68,35 @@
 <p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/hardness.html">Hardness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/providers.html">Block Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/states.html">States</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/triggers.html">Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/providers.html">Block Providers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#material-block-provider">Material Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#tag-block-provider">Tag Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#player-head-block-provider">Player Head Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#mmoitems-block-provider">MMOItems Block Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/states.html">States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/states.html#available-states">Available States</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/triggers.html">Triggers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/triggers.html#trigger-types">Trigger Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/triggers.html#trigger-functions">Trigger Functions</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Built-In States</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Built-In States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#descriptions">Descriptions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="external.html">External Plugin States</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="external/mmoitems.html">MMOItems States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external.html#mmocore">MMOCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external.html#mythicmobs">MythicMobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external.html#techtree">TechTree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external.html#vault">Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external.html#worldguard">WorldGuard</a></li>
 </ul>
 </li>
 </ul>
@@ -112,7 +132,527 @@
              
   <section id="built-in-states">
 <span id="doc-states-builtin"></span><h1>Built-In States<a class="headerlink" href="#built-in-states" title="Permalink to this headline"></a></h1>
-<p>yes</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<div class="line-block">
+<div class="line">Don’t know how to read these tables? See <a class="reference internal" href="../quickstart/configuration.html#doc-quickstart-configuration-states"><span class="std std-ref">Configuring the States</span></a>!</div>
+</div>
+</div>
+<p><strong>Quick Reference:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Args</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-effect"><span class="std std-ref">effect</span></a></p></td>
+<td><p><abbr title="String">type</abbr>, <abbr title="Integer">level</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-enchant"><span class="std std-ref">enchant</span></a></p></td>
+<td><p><abbr title="String">type</abbr>, <abbr title="Integer">level</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-exp"><span class="std std-ref">exp</span></a></p></td>
+<td><p><abbr title="Boolean">level</abbr>, <abbr title="Double">amount</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-helditem"><span class="std std-ref">helditem</span></a></p></td>
+<td><p><abbr title="Spigot Material">type</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-air"><span class="std std-ref">air</span></a></p></td>
+<td><p><em>None</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-water"><span class="std std-ref">water</span></a></p></td>
+<td><p><em>None</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-sneaking"><span class="std std-ref">sneaking</span></a></p></td>
+<td><p><em>None</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-time"><span class="std std-ref">time</span></a></p></td>
+<td><p><abbr title="String or Integer">min</abbr>, <abbr title="String or Integer">max</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-unbreakable"><span class="std std-ref">unbreakable</span></a></p></td>
+<td><p><em>None</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-rain"><span class="std std-ref">rain</span></a></p></td>
+<td><p><abbr title="Boolean">thunder</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-world"><span class="std std-ref">world</span></a></p></td>
+<td><p><abbr title="String">name</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-permission"><span class="std std-ref">permission</span></a></p></td>
+<td><p><abbr title="String">node</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-mmostat"><span class="std std-ref">mmostat</span></a></p></td>
+<td><p><abbr title="String">stat</abbr>, <abbr title="Double">value</abbr>, <abbr title="Boolean">higherthan</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-nbtstr"><span class="std std-ref">nbtstr</span></a></p></td>
+<td><p><abbr title="String">key</abbr>, <abbr title="String">value</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-nbtbool"><span class="std std-ref">nbtbool</span></a></p></td>
+<td><p><abbr title="String">key</abbr>, <abbr title="Boolean">value</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-nbtval"><span class="std std-ref">nbtval</span></a></p></td>
+<td><p><abbr title="String">key</abbr>, <abbr title="Integer">value</abbr></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Looking for <a class="reference internal" href="external.html#doc-states-external"><span class="std std-ref">External Plugin States</span></a>?</p>
+</div>
+<hr class="docutils" />
+<section id="descriptions">
+<h2>Descriptions<a class="headerlink" href="#descriptions" title="Permalink to this headline"></a></h2>
+<p>Each state description includes everything you need to configure each individual state.</p>
+<hr class="docutils" />
+<ul class="simple" id="state-effect">
+<li><p><code class="docutils literal notranslate"><span class="pre">effect</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Will check if the player has a specific potion effect.</div>
+<div class="line">The effect must be the specified level or higher.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>String</p></td>
+<td><p>Must be a valid <a class="reference external" href="https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html">effect</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>Integer</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">effect{type=LUCK;level=1}</span></code></div>
+<div class="line">The player must have the Luck Effect with an amplifier of 1 or higher.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-enchant">
+<li><p><code class="docutils literal notranslate"><span class="pre">enchant</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Will check if the players current item has a specific enchantment.</div>
+<div class="line">The enchantment must be a specified level or higher.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>String</p></td>
+<td><p>Must be a valid <a class="reference external" href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html">enchantment</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>Integer</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">enchantment{type=DIG_SPEED;level=2}</span></code></div>
+<div class="line">The item must have the Efficiency enchantment at level 2 or higher.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-exp">
+<li><p><code class="docutils literal notranslate"><span class="pre">exp</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the player has the specified amount of EXP.</div>
+<div class="line">You can also check for the level of the player.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 19%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>amount</p></td>
+<td><p>Double</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>Boolean</p></td>
+<td><p>If true, checks the players level instead</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">exp{amount=5,level=true}</span></code></div>
+<div class="line">Checks if the player is level 5 or higher.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-helditem">
+<li><p><code class="docutils literal notranslate"><span class="pre">helditem</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the player is holding a specific item type.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>String</p></td>
+<td><p>Must be a valid <a class="reference external" href="https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html">material</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">type{type=stick}</span></code></div>
+<div class="line">Checks if the player is holding a Stick.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-air">
+<li><p><code class="docutils literal notranslate"><span class="pre">air</span></code></p></li>
+</ul>
+<p>This state has no args.</p>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">air{}</span></code></div>
+<div class="line">Checks if the player is currently airborne.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-water">
+<li><p><code class="docutils literal notranslate"><span class="pre">water</span></code></p></li>
+</ul>
+<p>This state has no args.</p>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">water{}</span></code></div>
+<div class="line">Checks if the player is currently submerged.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-sneaking">
+<li><p><code class="docutils literal notranslate"><span class="pre">sneaking</span></code></p></li>
+</ul>
+<p>This state has no args.</p>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">sneaking{}</span></code></div>
+<div class="line">Checks if the player is currently sneaking.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-time">
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the time is currently between the specified min and max ticks of the day.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 46%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>min</p></td>
+<td><p>String or Integer</p></td>
+<td><p>See below</p></td>
+</tr>
+<tr class="row-odd"><td><p>max</p></td>
+<td><p>String or Integer</p></td>
+<td><p>See below</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">You can use these instead of an absolute tick value:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">day</span></code>, <code class="docutils literal notranslate"><span class="pre">noon</span></code>, <code class="docutils literal notranslate"><span class="pre">sunset</span></code>, <code class="docutils literal notranslate"><span class="pre">night</span></code>, <code class="docutils literal notranslate"><span class="pre">midnight</span></code> or <code class="docutils literal notranslate"><span class="pre">sunrise</span></code>.</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">time{min=sunrise;max=sunset}</span></code></div>
+<div class="line">Checks if the time is currently between sunrise and sunset.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-unbreakable">
+<li><p><code class="docutils literal notranslate"><span class="pre">unbreakable</span></code></p></li>
+</ul>
+<p>This state has no args.</p>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">unbreakable{}</span></code></div>
+<div class="line">Will always make the block completely unbreakable.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-rain">
+<li><p><code class="docutils literal notranslate"><span class="pre">rain</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if it is currently raining.</div>
+<div class="line">Can also check for thunderstorms.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 18%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>thunder</p></td>
+<td><p>Boolean</p></td>
+<td><p>Whether to check for thunderstorms or not.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">rain{thunder=true}</span></code></div>
+<div class="line">Checks if the it is currently raining and thundering.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-world">
+<li><p><code class="docutils literal notranslate"><span class="pre">world</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the player is currently in a specific world.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 43%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">world{name=world_nether}</span></code></div>
+<div class="line">Checks if the player is currently in “world_nether”.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-permission">
+<li><p><code class="docutils literal notranslate"><span class="pre">permission</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the player has a specific permission.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 43%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>node</p></td>
+<td><p>String</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">permission{node=breaker.test.perm}</span></code></div>
+<div class="line">Checks if the player has the <code class="docutils literal notranslate"><span class="pre">breaker.test.perm</span></code> permission.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-mmostat">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmostat</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the players specified stat is at a specific (or higher) level.</div>
+<div class="line">This hooks into the MythicLib stat API and can therefore look up any MMO stat.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 15%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stat</p></td>
+<td><p>String</p></td>
+<td><p>Stat names can be found on their respective plugin wikis.</p></td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>Double</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-even"><td><p>higherthan</p></td>
+<td><p>Boolean</p></td>
+<td><p>Will also check if the value is higher</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmostat{stat=max_health,value=30,higherthan=true}</span></code></div>
+<div class="line">The player must have a max health stat of 30 or higher.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-nbtstr">
+<li><p><code class="docutils literal notranslate"><span class="pre">nbtstr</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the current held item’s NBT matches the specified String.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 25%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>key</p></td>
+<td><p>String</p></td>
+<td><p>The path to the NBT value</p></td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>String</p></td>
+<td><p>The value to compare to</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">nbtstr{key=MMOITEMS_ITEM_ID,value=TEST_SWORD}</span></code></div>
+<div class="line">The value of the NBT path: ‘MMOITEMS_ITEM_ID’ must be ‘TEST_SWORD’.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-nbtbool">
+<li><p><code class="docutils literal notranslate"><span class="pre">nbtbool</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the current held item’s NBT matches the specified Boolean.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 25%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>key</p></td>
+<td><p>String</p></td>
+<td><p>The path to the NBT value</p></td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>Boolean</p></td>
+<td><p>The value to compare to</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">nbtbool{key=example_path,value=true}</span></code></div>
+<div class="line">The value of the NBT path: ‘example_path’ must be true.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-nbtval">
+<li><p><code class="docutils literal notranslate"><span class="pre">nbtval</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the current held item’s NBT matches the specified Integer.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 25%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>key</p></td>
+<td><p>String</p></td>
+<td><p>The path to the NBT value</p></td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>Integer</p></td>
+<td><p>The value to compare to</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">nbtval{key=CustomModelData,value=20}</span></code></div>
+<div class="line">The value of the NBT path: ‘CustomModelData’ must be 20.</div>
+</div>
+</section>
 </section>
 
 

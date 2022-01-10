@@ -68,15 +68,35 @@
 <p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/hardness.html">Hardness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/providers.html">Block Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/states.html">States</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/triggers.html">Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/providers.html">Block Providers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#material-block-provider">Material Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#tag-block-provider">Tag Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#player-head-block-provider">Player Head Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#mmoitems-block-provider">MMOItems Block Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/states.html">States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/states.html#available-states">Available States</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/triggers.html">Triggers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/triggers.html#trigger-types">Trigger Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/triggers.html#trigger-functions">Trigger Functions</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../states/builtin.html#descriptions">Descriptions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../states/external.html">External Plugin States</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../states/external/mmoitems.html">MMOItems States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mmocore">MMOCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mythicmobs">MythicMobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#techtree">TechTree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#vault">Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#worldguard">WorldGuard</a></li>
 </ul>
 </li>
 </ul>
@@ -112,14 +132,42 @@
              
   <section id="external-plugins">
 <span id="doc-quickstart-external"></span><h1>External Plugins<a class="headerlink" href="#external-plugins" title="Permalink to this headline"></a></h1>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">func _ready()</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">$Label.text = &quot;Hello world!&quot;</span><span class="w"></span>
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You simply need to install a compatible plugin and Breaker will automatically hook onto it!</p>
 </div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<ul>
+<li><div class="line-block">
+<div class="line"><strong>MMOItems</strong>:</div>
+<div class="line">Using the <a class="reference internal" href="../states/builtin.html#doc-states-builtin"><span class="std std-ref">MMOStatState or NBTState</span></a> you can check for the NBT of a unique MMOItem or the players specific stat level.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>MMOCore</strong>:</div>
+<div class="line">MMOCore provides a few <a class="reference internal" href="../states/external.html#states-mmocore"><span class="std std-ref">states</span></a> related to features like level, experience, professions, classes and more.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>MythicMobs</strong>:</div>
+<div class="line">MythicMobs provides a few <a class="reference internal" href="../states/external.html#states-mythicmobs"><span class="std std-ref">advanced states</span></a> and a new <a class="reference internal" href="../mechanics/triggers.html#doc-mechanics-triggers"><span class="std std-ref">trigger function</span></a>.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>TechTree</strong>:</div>
+<div class="line">Vault provides a simple <a class="reference internal" href="../states/external.html#state-techentry"><span class="std std-ref">techentry state</span></a> to check if a player has unlocked a specific entry.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Vault</strong>:</div>
+<div class="line">Vault provides a simple <a class="reference internal" href="../states/external.html#state-money"><span class="std std-ref">money state</span></a> to check against a players vault balance.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>WorldGuard</strong>:</div>
+<div class="line">WG provides not only a <a class="reference internal" href="../states/external.html#state-region"><span class="std std-ref">Region State</span></a>, but also allows you to use the “<em>Region Rules</em>”. For more information about this, please see Breaker’s <code class="docutils literal notranslate"><span class="pre">config.yml</span></code> file.</div>
+</div>
+</li>
+</ul>
 </section>
 
 

@@ -68,15 +68,35 @@
 <p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="hardness.html">Hardness</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Block Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="states.html">States</a></li>
-<li class="toctree-l1"><a class="reference internal" href="triggers.html">Triggers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Block Providers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#material-block-provider">Material Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tag-block-provider">Tag Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#player-head-block-provider">Player Head Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mmoitems-block-provider">MMOItems Block Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="states.html">States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="states.html#available-states">Available States</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="triggers.html">Triggers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="triggers.html#trigger-types">Trigger Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="triggers.html#trigger-functions">Trigger Functions</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../states/builtin.html#descriptions">Descriptions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../states/external.html">External Plugin States</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../states/external/mmoitems.html">MMOItems States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mmocore">MMOCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mythicmobs">MythicMobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#techtree">TechTree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#vault">Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#worldguard">WorldGuard</a></li>
 </ul>
 </li>
 </ul>
@@ -112,14 +132,62 @@
              
   <section id="block-providers">
 <span id="doc-mechanics-providers"></span><h1>Block Providers<a class="headerlink" href="#block-providers" title="Permalink to this headline"></a></h1>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">func _ready()</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">$Label.text = &quot;Hello world!&quot;</span><span class="w"></span>
-</pre></div>
+<p>Breaker features a unqiue block selection system, that allows
+you to specify exactly what blocks are affected and which aren’t.
+This system works by using something called a <strong>Block Provider</strong>.</p>
+<hr class="docutils" />
+<p>Each <strong>Block Provider</strong> has a different syntax for connecting with their respective blocks.
+For a better understanding, read through each individual Block Provider.</p>
+<hr class="docutils" />
+<section id="material-block-provider">
+<h2>Material Block Provider<a class="headerlink" href="#material-block-provider" title="Permalink to this headline"></a></h2>
+<p>The <strong>Material Block Provider</strong> is the most simple provider there is.
+It simply uses <a class="reference external" href="https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html">Spigot Material</a>
+values to specify which block to bind your configuration to.</p>
+<p>Using this provider is simple as you just need to input name of the desired block.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">IRON_BLOCK</span></code></p>
 </div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</section>
+<hr class="docutils" />
+<section id="tag-block-provider">
+<h2>Tag Block Provider<a class="headerlink" href="#tag-block-provider" title="Permalink to this headline"></a></h2>
+<p>The <strong>Tag Block Provider</strong> allows you to input <a class="reference external" href="https://minecraft.fandom.com/wiki/Tag#Blocks">block tags</a>.
+Any block included in the tag will be affected by the configuration.</p>
+<p>You can also <a class="reference external" href="https://minecraft.fandom.com/wiki/Tutorials/Creating_a_data_pack">create your own datapack</a> and add custom block tags.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line"><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">&quot;#minecraft:wool&quot;</span></code></div>
+<div class="line">(<em>Remember to use quotations, as YAML will otherwise think the hashtag is a comment</em>)</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="player-head-block-provider">
+<h2>Player Head Block Provider<a class="headerlink" href="#player-head-block-provider" title="Permalink to this headline"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>NOT YET IMPLEMENTED!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">SKULL-eyJ0ZXh0d...</span></code> (Shortened)</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="mmoitems-block-provider">
+<h2>MMOItems Block Provider<a class="headerlink" href="#mmoitems-block-provider" title="Permalink to this headline"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>NOT YET IMPLEMENTED!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">MMOITEMS_13</span></code></p>
+</div>
+</section>
 </section>
 
 

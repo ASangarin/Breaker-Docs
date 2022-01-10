@@ -1,13 +1,9 @@
 Home
 ========================
-.. note:: Last updated ``Jan 6th, 2022`` - version 1
+.. note:: Last updated ``Jan 6th, 2022`` - version 1.1
 
 .. important:: Remember to backup/delete your ``plugins/Breaker`` folder when upgrading from Legacy Breaker!
                Old configs won't work on Breaker 2.0, but can be used as reference when setting up.
-
-.. warning::
-   These docs are still being written! These pages are far from complete and can therefore be inaccurate.
-   Please proceed with caution.
 
 What is Breaker?
 -----------------
@@ -16,7 +12,7 @@ Want to mine Obsidian quicker? Breaker. Want to make certain wood types harder t
 Breaker also features systems such as conditions (called states) for reducing break speed and triggers for making things happen.
 This documentation contains information about everything that Breaker has to offer.
 
-Get Breaker at `SpigotMC <https://www.spigotmc.org/>`_.
+Get Breaker at `SpigotMC <https://www.spigotmc.org/resources/breaker-2-configurable-breaking-speeds-1-16-1-18.99022/>`_.
 
 Browse through the Breaker documentation:
 

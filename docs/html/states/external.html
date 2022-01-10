@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MMOItems States" href="external/mmoitems.html" />
+    <link rel="next" title="Providers [API]" href="../api/providers.html" />
     <link rel="prev" title="Built-In States" href="builtin.html" /> 
 </head>
 
@@ -68,15 +68,35 @@
 <p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../mechanics/hardness.html">Hardness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/providers.html">Block Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/states.html">States</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mechanics/triggers.html">Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/providers.html">Block Providers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#material-block-provider">Material Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#tag-block-provider">Tag Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#player-head-block-provider">Player Head Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/providers.html#mmoitems-block-provider">MMOItems Block Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/states.html">States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/states.html#available-states">Available States</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanics/triggers.html">Triggers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/triggers.html#trigger-types">Trigger Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanics/triggers.html#trigger-functions">Trigger Functions</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="builtin.html">Built-In States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="builtin.html">Built-In States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html#descriptions">Descriptions</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">External Plugin States</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="external/mmoitems.html">MMOItems States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mmocore">MMOCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mythicmobs">MythicMobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#techtree">TechTree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vault">Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#worldguard">WorldGuard</a></li>
 </ul>
 </li>
 </ul>
@@ -114,11 +134,457 @@
 <span id="doc-states-external"></span><h1>External Plugin States<a class="headerlink" href="#external-plugin-states" title="Permalink to this headline"></a></h1>
 <p>External Plugin States are states that are supplied (or require) an external plugin.
 You will not be able to use these without having installed the plugin in question.</p>
-<div class="toctree-wrapper compound" id="toc-about">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="external/mmoitems.html">MMOItems States</a></li>
-</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<div class="line-block">
+<div class="line">Don’t know how to read these tables? See <a class="reference internal" href="../quickstart/configuration.html#doc-quickstart-configuration-states"><span class="std std-ref">Configuring the States</span></a>!</div>
 </div>
+</div>
+<p><strong>Quick Reference:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 10%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Plugin</p></th>
+<th class="head"><p>Args</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-mmoattribute"><span class="std std-ref">mmoattribute</span></a></p></td>
+<td><p>MMOCore</p></td>
+<td><p><abbr title="String">name</abbr>, <abbr title="Integer">level</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-mmoclass"><span class="std std-ref">mmoclass</span></a></p></td>
+<td><p>MMOCore</p></td>
+<td><p><abbr title="String">name</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-mmoexp"><span class="std std-ref">mmoexp</span></a></p></td>
+<td><p>MMOCore</p></td>
+<td><p><abbr title="Boolean">level</abbr>, <abbr title="Double">amount</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-mmopoint"><span class="std std-ref">mmopoint</span></a></p></td>
+<td><p>MMOCore</p></td>
+<td><p><abbr title="String">type</abbr>, <abbr title="Integer">amount</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-mmoprof"><span class="std std-ref">mmoprof</span></a></p></td>
+<td><p>MMOCore</p></td>
+<td><p><abbr title="String">name</abbr>, <abbr title="Integer">level</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-mmoresource"><span class="std std-ref">mmoresource</span></a></p></td>
+<td><p>MMOCore</p></td>
+<td><p><abbr title="String">type</abbr>, <abbr title="Integer">amount</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-mmcast"><span class="std std-ref">mmcast</span></a></p></td>
+<td><p>MythicMobs</p></td>
+<td><p><abbr title="String">skill</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-mmvar"><span class="std std-ref">mmvar</span></a></p></td>
+<td><p>MythicMobs</p></td>
+<td><p><abbr title="String">key</abbr>, <abbr title="Double">value</abbr>, <abbr title="Boolean">higherthan</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-techentry"><span class="std std-ref">techentry</span></a></p></td>
+<td><p>TechTree</p></td>
+<td><p><abbr title="String">entry</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-money"><span class="std std-ref">money</span></a></p></td>
+<td><p>Vault</p></td>
+<td><p><abbr title="Double">amount</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-region"><span class="std std-ref">region</span></a></p></td>
+<td><p>WorldGuard</p></td>
+<td><p><abbr title="String">name</abbr></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Looking for <a class="reference internal" href="builtin.html#doc-states-builtin"><span class="std std-ref">Built-In States</span></a>?</p>
+</div>
+<hr class="docutils" />
+<section id="mmocore">
+<span id="states-mmocore"></span><h2>MMOCore<a class="headerlink" href="#mmocore" title="Permalink to this headline"></a></h2>
+<p>These are the states provided by <a class="reference external" href="https://mythiccraft.io/index.php?resources/mmocore.395/">MMOCore</a>.</p>
+<hr class="docutils" />
+<ul class="simple" id="state-mmoattribute">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmoattribute</span></code></p></li>
+</ul>
+<p>Checks if the player has enough points in an attribute.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 25%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>Must be a valid attribute</p></td>
+</tr>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>Integer</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmoattribute{name=strength;level=10}</span></code></div>
+<div class="line">Player must have at least 10 points in Strength.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-mmoclass">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmoclass</span></code></p></li>
+</ul>
+<p>Checks if the player has the specified class.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 27%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>Must be a valid class</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmoclass{name=rogue}</span></code></div>
+<div class="line">The player must be a rogue.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-mmoexp">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmoexp</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the player has the specified amount of MMOCore EXP.</div>
+<div class="line">You can also check for the MMOCore Class level of the player.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 19%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>amount</p></td>
+<td><p>Double</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>Boolean</p></td>
+<td><p>If true, checks the players level instead</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmoexp{amount=5,level=true}</span></code></div>
+<div class="line">Checks if the player is MMOCore Class level 5 or higher.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-mmopoint">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmopoint</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the player has the specified amount of points or higher of the specified type.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 13%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>String</p></td>
+<td><p>Must be either: <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">skill</span></code>, <code class="docutils literal notranslate"><span class="pre">attribute</span></code>, or <code class="docutils literal notranslate"><span class="pre">recollection</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>amount</p></td>
+<td><p>Integer</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmopoint{type=class,amount=10}</span></code></div>
+<div class="line">The player must have at least 10 class points.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-mmoprof">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmoprof</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the player is the specified level (or higher) in the specified profession.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 24%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>Must be a valid profession</p></td>
+</tr>
+<tr class="row-odd"><td><p>amount</p></td>
+<td><p>Integer</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmoprof{name=mining,level=6}</span></code></div>
+<div class="line">The player must level 6 or higher in Mining.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-mmoresource">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmoresource</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Checks if the player has the specified amount (or higher) of the specified resource.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 16%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>String</p></td>
+<td><p>Must be either: <code class="docutils literal notranslate"><span class="pre">mana</span></code>, <code class="docutils literal notranslate"><span class="pre">stamina</span></code>, or <code class="docutils literal notranslate"><span class="pre">stellium</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>amount</p></td>
+<td><p>Integer</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmoresource{type=stamina;amount=50}</span></code></div>
+<div class="line">The player must have at least 50 stamina.</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="mythicmobs">
+<span id="states-mythicmobs"></span><h2>MythicMobs<a class="headerlink" href="#mythicmobs" title="Permalink to this headline"></a></h2>
+<p>These are the states provided by <a class="reference external" href="https://mythiccraft.io/index.php?resources/mythicmobs.1/">MythicMobs</a>.</p>
+<hr class="docutils" />
+<ul class="simple" id="state-mmcast">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmcast</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Will check if the player is currently able to cast a specific MythicMobs skill.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 22%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>skill</p></td>
+<td><p>String</p></td>
+<td><p>Must be a valid MythicMobs skill</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmcast{skill=TestSkill}</span></code></div>
+<div class="line">The player must meet all the conditions for casting “TestSkill”.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-mmvar">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmvar</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Will compare a numeric MythicMobs variable with the specified value.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 20%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>key</p></td>
+<td><p>String</p></td>
+<td><p>Must be a valid MythicMobs variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>Integer</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-even"><td><p>higherthan</p></td>
+<td><p>Boolean</p></td>
+<td><p>Will also check if the value is higher</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmvar{key=test;value=10;higherthan=true}</span></code></div>
+<div class="line">The MythicMobs variable “test” must be 10 or higher.</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="techtree">
+<h2>TechTree<a class="headerlink" href="#techtree" title="Permalink to this headline"></a></h2>
+<p>These are the states provided by <a class="reference external" href="https://www.spigotmc.org/resources/techtree.98962/">TechTree</a>.</p>
+<hr class="docutils" />
+<ul class="simple" id="state-techentry">
+<li><p><code class="docutils literal notranslate"><span class="pre">techentry</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Will check if the player has unlocked a specific tech entry.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 16%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>entry</p></td>
+<td><p>String</p></td>
+<td><p>Must be a valid path to a tech entry (<code class="docutils literal notranslate"><span class="pre">tree.entry</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">techentry{entry=testtree.testentry}</span></code></div>
+<div class="line">The player must have unlocked the “Test Entry” in “Test Tree”</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="vault">
+<h2>Vault<a class="headerlink" href="#vault" title="Permalink to this headline"></a></h2>
+<p>These are the states provided by <a class="reference external" href="https://www.spigotmc.org/resources/vault.34315/">Vault</a>.</p>
+<hr class="docutils" />
+<ul class="simple" id="state-money">
+<li><p><code class="docutils literal notranslate"><span class="pre">money</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><strong>MUST HAVE A VALID ECONOMY PLUGIN INSTALLED!</strong></div>
+<div class="line">Will check if the player have the specified amount (or higher) in their balance.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 43%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>amount</p></td>
+<td><p>Double</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">money{amount=2.6}</span></code></div>
+<div class="line">The player must have at least ‘2.6’ in their balance.</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="worldguard">
+<h2>WorldGuard<a class="headerlink" href="#worldguard" title="Permalink to this headline"></a></h2>
+<p>These are the states provided by <a class="reference external" href="https://dev.bukkit.org/projects/worldguard">WorldGuard</a>.</p>
+<hr class="docutils" />
+<ul class="simple" id="state-region">
+<li><p><code class="docutils literal notranslate"><span class="pre">region</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Will check if the player is in a specific WG region.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 43%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">region{name=testregion}</span></code></div>
+<div class="line">The player must be inside a region called “testregion”.</div>
+</div>
+</section>
 </section>
 
 
@@ -126,7 +592,7 @@ You will not be able to use these without having installed the plugin in questio
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="builtin.html" class="btn btn-neutral float-left" title="Built-In States" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="external/mmoitems.html" class="btn btn-neutral float-right" title="MMOItems States" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../api/providers.html" class="btn btn-neutral float-right" title="Providers [API]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -68,15 +68,35 @@
 <p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="hardness.html">Hardness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="providers.html">Block Providers</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">States</a></li>
-<li class="toctree-l1"><a class="reference internal" href="triggers.html">Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="providers.html">Block Providers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="providers.html#material-block-provider">Material Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="providers.html#tag-block-provider">Tag Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="providers.html#player-head-block-provider">Player Head Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="providers.html#mmoitems-block-provider">MMOItems Block Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#available-states">Available States</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="triggers.html">Triggers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="triggers.html#trigger-types">Trigger Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="triggers.html#trigger-functions">Trigger Functions</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Available States</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../states/builtin.html#descriptions">Descriptions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../states/external.html">External Plugin States</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../states/external/mmoitems.html">MMOItems States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mmocore">MMOCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mythicmobs">MythicMobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#techtree">TechTree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#vault">Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#worldguard">WorldGuard</a></li>
 </ul>
 </li>
 </ul>
@@ -112,14 +132,66 @@
              
   <section id="states">
 <span id="doc-mechanics-states"></span><h1>States<a class="headerlink" href="#states" title="Permalink to this headline"></a></h1>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">func _ready()</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">$Label.text = &quot;Hello world!&quot;</span><span class="w"></span>
-</pre></div>
+<div class="admonition-ref-configuring-the-states-doc-quickstart-configuration-states admonition">
+<p class="admonition-title"><a class="reference internal" href="../quickstart/configuration.html#doc-quickstart-configuration-states"><span class="std std-ref">Configuring the States</span></a></p>
+<p><strong>States</strong> are conditions that can change the blocks <strong>Hardness</strong> when they’re met. There are a ton of States available, both <a class="reference internal" href="../states/builtin.html#doc-states-builtin"><span class="std std-ref">provided by breaker</span></a> and <a class="reference internal" href="../states/external.html#doc-states-external"><span class="std std-ref">by external plugins</span></a>.</p>
 </div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<div class="line-block">
+<div class="line">See <a class="reference internal" href="../quickstart/configuration.html#doc-quickstart-configuration-states"><span class="std std-ref">Configuration</span></a> to understand how states are configured!</div>
+<div class="line">This page is a simple reference page to quickly find the state you’re looking for.</div>
+</div>
+</div>
+<section id="available-states">
+<h2>Available States<a class="headerlink" href="#available-states" title="Permalink to this headline"></a></h2>
+<p><strong>Built-In States:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../states/builtin.html#state-effect"><span class="std std-ref">effect</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-enchant"><span class="std std-ref">enchant</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-exp"><span class="std std-ref">exp</span></a> (Experience)</p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-helditem"><span class="std std-ref">helditem</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-air"><span class="std std-ref">air</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-water"><span class="std std-ref">water</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-sneaking"><span class="std std-ref">sneaking</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-time"><span class="std std-ref">time</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-unbreakable"><span class="std std-ref">unbreakable</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-rain"><span class="std std-ref">rain</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-world"><span class="std std-ref">world</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-permission"><span class="std std-ref">permission</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-mmostat"><span class="std std-ref">mmostat</span></a></p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-nbtbool"><span class="std std-ref">nbtbool</span></a> (NBT Boolean)</p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-nbtstr"><span class="std std-ref">nbtstr</span></a> (NBT String)</p></li>
+<li><p><a class="reference internal" href="../states/builtin.html#state-nbtval"><span class="std std-ref">nbtval</span></a> (NBT Value)</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>MMOCore States:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../states/external.html#state-mmoattribute"><span class="std std-ref">mmoattribute</span></a></p></li>
+<li><p><a class="reference internal" href="../states/external.html#state-mmoclass"><span class="std std-ref">mmoclass</span></a></p></li>
+<li><p><a class="reference internal" href="../states/external.html#state-mmoexp"><span class="std std-ref">mmoexp</span></a></p></li>
+<li><p><a class="reference internal" href="../states/external.html#state-mmopoint"><span class="std std-ref">mmopoint</span></a></p></li>
+<li><p><a class="reference internal" href="../states/external.html#state-mmoprof"><span class="std std-ref">mmoprof</span></a> (MMO Profession)</p></li>
+<li><p><a class="reference internal" href="../states/external.html#state-mmoresource"><span class="std std-ref">mmoresource</span></a></p></li>
+</ul>
+<p><strong>MythicMobs States:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../states/external.html#state-mmcast"><span class="std std-ref">mmcast</span></a> (<abbr title="MythicMobs">MM</abbr> “Can Cast?”)</p></li>
+<li><p><a class="reference internal" href="../states/external.html#state-mmvar"><span class="std std-ref">mmvar</span></a> (<abbr title="MythicMobs">MM</abbr> Variable)</p></li>
+</ul>
+<p><strong>TechTree States:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../states/external.html#state-techentry"><span class="std std-ref">techentry</span></a></p></li>
+</ul>
+<p><strong>Vault States:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../states/external.html#state-money"><span class="std std-ref">money</span></a></p></li>
+</ul>
+<p><strong>WorldGuard States:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../states/external.html#state-region"><span class="std std-ref">region</span></a></p></li>
+</ul>
+</section>
 </section>
 
 
