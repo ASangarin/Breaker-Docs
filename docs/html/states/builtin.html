@@ -141,8 +141,8 @@
 <p><strong>Quick Reference:</strong></p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 67%" />
+<col style="width: 32%" />
+<col style="width: 68%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -187,16 +187,16 @@
 <td><p><abbr title="String">node</abbr></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#state-mmostat"><span class="std std-ref">mmostat</span></a></p></td>
-<td><p><abbr title="String">stat</abbr>, <abbr title="Double">value</abbr>, <abbr title="Boolean">higherthan</abbr></p></td>
+<td><p><abbr title="String">stat</abbr>, <abbr title="Double">statval</abbr>, <abbr title="Boolean">higherthan</abbr></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#state-nbtstr"><span class="std std-ref">nbtstr</span></a></p></td>
-<td><p><abbr title="String">key</abbr>, <abbr title="String">value</abbr></p></td>
+<td><p><abbr title="String">key</abbr>, <abbr title="String">nbtval</abbr></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#state-nbtbool"><span class="std std-ref">nbtbool</span></a></p></td>
-<td><p><abbr title="String">key</abbr>, <abbr title="Boolean">value</abbr></p></td>
+<td><p><abbr title="String">key</abbr>, <abbr title="Boolean">nbtval</abbr></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#state-nbtval"><span class="std std-ref">nbtval</span></a></p></td>
-<td><p><abbr title="String">key</abbr>, <abbr title="Integer">value</abbr></p></td>
+<td><p><abbr title="String">key</abbr>, <abbr title="Integer">nbtval</abbr></p></td>
 </tr>
 </tbody>
 </table>
@@ -536,18 +536,18 @@
 <td><p>String</p></td>
 <td><p>Stat names can be found on their respective plugin wikis.</p></td>
 </tr>
-<tr class="row-odd"><td><p>value</p></td>
+<tr class="row-odd"><td><p>statval</p></td>
 <td><p>Double</p></td>
 <td><p>—</p></td>
 </tr>
 <tr class="row-even"><td><p>higherthan</p></td>
 <td><p>Boolean</p></td>
-<td><p>Will also check if the value is higher</p></td>
+<td><p>Will also check if the stat is higher</p></td>
 </tr>
 </tbody>
 </table>
 <div class="line-block">
-<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmostat{stat=max_health,value=30,higherthan=true}</span></code></div>
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmostat{stat=max_health,statval=30,higherthan=true}</span></code></div>
 <div class="line">The player must have a max health stat of 30 or higher.</div>
 </div>
 <hr class="docutils" />
@@ -574,15 +574,15 @@
 <td><p>String</p></td>
 <td><p>The path to the NBT value</p></td>
 </tr>
-<tr class="row-odd"><td><p>value</p></td>
+<tr class="row-odd"><td><p>nbtval</p></td>
 <td><p>String</p></td>
-<td><p>The value to compare to</p></td>
+<td><p>The string to compare to</p></td>
 </tr>
 </tbody>
 </table>
 <div class="line-block">
-<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">nbtstr{key=MMOITEMS_ITEM_ID,value=TEST_SWORD}</span></code></div>
-<div class="line">The value of the NBT path: ‘MMOITEMS_ITEM_ID’ must be ‘TEST_SWORD’.</div>
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">nbtstr{key=MMOITEMS_ITEM_ID,nbtval=TEST_SWORD}</span></code></div>
+<div class="line">The string of the NBT path: ‘MMOITEMS_ITEM_ID’ must be ‘TEST_SWORD’.</div>
 </div>
 <hr class="docutils" />
 <ul class="simple" id="state-nbtbool">
@@ -608,15 +608,15 @@
 <td><p>String</p></td>
 <td><p>The path to the NBT value</p></td>
 </tr>
-<tr class="row-odd"><td><p>value</p></td>
+<tr class="row-odd"><td><p>nbtval</p></td>
 <td><p>Boolean</p></td>
-<td><p>The value to compare to</p></td>
+<td><p>The boolean to compare to</p></td>
 </tr>
 </tbody>
 </table>
 <div class="line-block">
-<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">nbtbool{key=example_path,value=true}</span></code></div>
-<div class="line">The value of the NBT path: ‘example_path’ must be true.</div>
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">nbtbool{key=example_path,nbtval=true}</span></code></div>
+<div class="line">The boolean of the NBT path: ‘example_path’ must be true.</div>
 </div>
 <hr class="docutils" />
 <ul class="simple" id="state-nbtval">
@@ -642,15 +642,15 @@
 <td><p>String</p></td>
 <td><p>The path to the NBT value</p></td>
 </tr>
-<tr class="row-odd"><td><p>value</p></td>
+<tr class="row-odd"><td><p>nbtval</p></td>
 <td><p>Integer</p></td>
-<td><p>The value to compare to</p></td>
+<td><p>The numeric to compare to</p></td>
 </tr>
 </tbody>
 </table>
 <div class="line-block">
-<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">nbtval{key=CustomModelData,value=20}</span></code></div>
-<div class="line">The value of the NBT path: ‘CustomModelData’ must be 20.</div>
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">nbtval{key=CustomModelData,nbtval=20}</span></code></div>
+<div class="line">The integer of the NBT path: ‘CustomModelData’ must be 20.</div>
 </div>
 </section>
 </section>

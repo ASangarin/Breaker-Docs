@@ -22,10 +22,10 @@ Type                                  Args
 :ref:`rain<state_rain>`               :abbr:`thunder (Boolean)`
 :ref:`world<state_world>`             :abbr:`name (String)`
 :ref:`permission<state_permission>`   :abbr:`node (String)`
-:ref:`mmostat<state_mmostat>`         :abbr:`stat (String)`, :abbr:`value (Double)`, :abbr:`higherthan (Boolean)`
-:ref:`nbtstr<state_nbtstr>`           :abbr:`key (String)`, :abbr:`value (String)`
-:ref:`nbtbool<state_nbtbool>`         :abbr:`key (String)`, :abbr:`value (Boolean)`
-:ref:`nbtval<state_nbtval>`           :abbr:`key (String)`, :abbr:`value (Integer)`
+:ref:`mmostat<state_mmostat>`         :abbr:`stat (String)`, :abbr:`statval (Double)`, :abbr:`higherthan (Boolean)`
+:ref:`nbtstr<state_nbtstr>`           :abbr:`key (String)`, :abbr:`nbtval (String)`
+:ref:`nbtbool<state_nbtbool>`         :abbr:`key (String)`, :abbr:`nbtval (Boolean)`
+:ref:`nbtval<state_nbtval>`           :abbr:`key (String)`, :abbr:`nbtval (Integer)`
 ===================================== =
 
 .. note:: Looking for :ref:`External Plugin States<doc_states_external>`?
@@ -241,11 +241,11 @@ node        String       ---
 Argument    Type         Notes
 =========== ============ =
 stat        String       Stat names can be found on their respective plugin wikis.
-value       Double       ---
-higherthan  Boolean      Will also check if the value is higher
+statval       Double     ---
+higherthan  Boolean      Will also check if the stat is higher
 =========== ============ =
 
-| **Example:** ``mmostat{stat=max_health,value=30,higherthan=true}``
+| **Example:** ``mmostat{stat=max_health,statval=30,higherthan=true}``
 | The player must have a max health stat of 30 or higher.
 
 ----
@@ -260,11 +260,11 @@ higherthan  Boolean      Will also check if the value is higher
 Argument    Type         Notes
 =========== ============ =
 key         String       The path to the NBT value
-value       String       The value to compare to
+nbtval      String       The string to compare to
 =========== ============ =
 
-| **Example:** ``nbtstr{key=MMOITEMS_ITEM_ID,value=TEST_SWORD}``
-| The value of the NBT path: 'MMOITEMS_ITEM_ID' must be 'TEST_SWORD'.
+| **Example:** ``nbtstr{key=MMOITEMS_ITEM_ID,nbtval=TEST_SWORD}``
+| The string of the NBT path: 'MMOITEMS_ITEM_ID' must be 'TEST_SWORD'.
 
 ----
 
@@ -278,11 +278,11 @@ value       String       The value to compare to
 Argument    Type         Notes
 =========== ============ =
 key         String       The path to the NBT value
-value       Boolean      The value to compare to
+nbtval      Boolean      The boolean to compare to
 =========== ============ =
 
-| **Example:** ``nbtbool{key=example_path,value=true}``
-| The value of the NBT path: 'example_path' must be true.
+| **Example:** ``nbtbool{key=example_path,nbtval=true}``
+| The boolean of the NBT path: 'example_path' must be true.
 
 ----
 
@@ -296,8 +296,8 @@ value       Boolean      The value to compare to
 Argument    Type         Notes
 =========== ============ =
 key         String       The path to the NBT value
-value       Integer      The value to compare to
+nbtval      Integer      The numeric to compare to
 =========== ============ =
 
-| **Example:** ``nbtval{key=CustomModelData,value=20}``
-| The value of the NBT path: 'CustomModelData' must be 20.
+| **Example:** ``nbtval{key=CustomModelData,nbtval=20}``
+| The integer of the NBT path: 'CustomModelData' must be 20.

@@ -20,7 +20,7 @@ Type                                    Plugin       Args
 :ref:`mmoprof<state_mmoprof>`           MMOCore      :abbr:`name (String)`, :abbr:`level (Integer)`
 :ref:`mmoresource<state_mmoresource>`   MMOCore      :abbr:`type (String)`, :abbr:`amount (Integer)`
 :ref:`mmcast<state_mmcast>`             MythicMobs   :abbr:`skill (String)`
-:ref:`mmvar<state_mmvar>`               MythicMobs   :abbr:`key (String)`, :abbr:`value (Double)`, :abbr:`higherthan (Boolean)`
+:ref:`mmvar<state_mmvar>`               MythicMobs   :abbr:`key (String)`, :abbr:`varval (Double)`, :abbr:`higherthan (Boolean)`
 :ref:`techentry<state_techentry>`       TechTree     :abbr:`entry (String)`
 :ref:`money<state_money>`               Vault        :abbr:`amount (Double)`
 :ref:`region<state_region>`             WorldGuard   :abbr:`name (String)`
@@ -183,11 +183,11 @@ skill       String       Must be a valid MythicMobs skill
 Argument    Type         Notes
 =========== ============ =
 key         String       Must be a valid MythicMobs variable
-value       Integer      ---
-higherthan  Boolean      Will also check if the value is higher
+varval      Integer      ---
+higherthan  Boolean      Will also check if the variable is higher
 =========== ============ =
 
-| **Example:** ``mmvar{key=test;value=10;higherthan=true}``
+| **Example:** ``mmvar{key=test;varval=10;higherthan=true}``
 | The MythicMobs variable "test" must be 10 or higher.
 
 ----
