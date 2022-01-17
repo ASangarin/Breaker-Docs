@@ -88,7 +88,7 @@ amount      Double       ---
 level       Boolean      If true, checks the players level instead
 =========== ============ =
 
-| **Example:** ``mmoexp{amount=5,level=true}``
+| **Example:** ``mmoexp{amount=5;level=true}``
 | Checks if the player is MMOCore Class level 5 or higher.
 
 ----
@@ -106,7 +106,7 @@ type        String       Must be either: ``class``, ``skill``, ``attribute``, or
 amount      Integer      ---
 =========== ============ =
 
-| **Example:** ``mmopoint{type=class,amount=10}``
+| **Example:** ``mmopoint{type=class;amount=10}``
 | The player must have at least 10 class points.
 
 ----
@@ -124,7 +124,7 @@ name        String       Must be a valid profession
 amount      Integer      ---
 =========== ============ =
 
-| **Example:** ``mmoprof{name=mining,level=6}``
+| **Example:** ``mmoprof{name=mining;level=6}``
 | The player must level 6 or higher in Mining.
 
 ----

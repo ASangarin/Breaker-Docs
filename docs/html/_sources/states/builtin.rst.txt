@@ -91,7 +91,7 @@ amount      Double       ---
 level       Boolean      If true, checks the players level instead
 =========== ============ =
 
-| **Example:** ``exp{amount=5,level=true}``
+| **Example:** ``exp{amount=5;level=true}``
 | Checks if the player is level 5 or higher.
 
 ----
@@ -245,7 +245,7 @@ statval       Double     ---
 higherthan  Boolean      Will also check if the stat is higher
 =========== ============ =
 
-| **Example:** ``mmostat{stat=max_health,statval=30,higherthan=true}``
+| **Example:** ``mmostat{stat=max_health;statval=30;higherthan=true}``
 | The player must have a max health stat of 30 or higher.
 
 ----
@@ -263,7 +263,7 @@ key         String       The path to the NBT value
 nbtval      String       The string to compare to
 =========== ============ =
 
-| **Example:** ``nbtstr{key=MMOITEMS_ITEM_ID,nbtval=TEST_SWORD}``
+| **Example:** ``nbtstr{key=MMOITEMS_ITEM_ID;nbtval=TEST_SWORD}``
 | The string of the NBT path: 'MMOITEMS_ITEM_ID' must be 'TEST_SWORD'.
 
 ----
@@ -281,7 +281,7 @@ key         String       The path to the NBT value
 nbtval      Boolean      The boolean to compare to
 =========== ============ =
 
-| **Example:** ``nbtbool{key=example_path,nbtval=true}``
+| **Example:** ``nbtbool{key=example_path;nbtval=true}``
 | The boolean of the NBT path: 'example_path' must be true.
 
 ----
@@ -299,5 +299,5 @@ key         String       The path to the NBT value
 nbtval      Integer      The numeric to compare to
 =========== ============ =
 
-| **Example:** ``nbtval{key=CustomModelData,nbtval=20}``
+| **Example:** ``nbtval{key=CustomModelData;nbtval=20}``
 | The integer of the NBT path: 'CustomModelData' must be 20.
