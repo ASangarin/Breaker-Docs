@@ -72,8 +72,11 @@ type        String       Must be a valid `enchantment <https://hub.spigotmc.org/
 level       Integer      ---
 =========== ============ =
 
-| **Example:** ``enchantment{type=DIG_SPEED;level=2}``
+| **Example:** ``enchant{type=DIG_SPEED;level=2}``
 | The item must have the Efficiency enchantment at level 2 or higher.
+
+| You can also specify a custom enchantment by providing a namespace and a key.
+| **Example:** ``enchant{type=example:myenchant}``
 
 ----
 
