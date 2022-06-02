@@ -17,6 +17,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/js/custom.js"></script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
@@ -131,7 +132,7 @@
            <div itemprop="articleBody">
              
   <section id="configuration">
-<span id="doc-quickstart-configuration"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h1>
+<span id="doc-quickstart-configuration"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h1>
 <p>Breaker allows you to change the breaking speeds of almost any block you desire.
 The plugin has a lot of flexibility/customization and therefore can seem complex, but it should be relatively simple once you get the hang of things.
 This page of the docs will guide you through key-terms, link you to relevant pages and describe carefully how to modify the breaking speeds to your liking.</p>
@@ -144,7 +145,7 @@ This page of the docs will guide you through key-terms, link you to relevant pag
 </div>
 <hr class="docutils" />
 <section id="configuration-basics">
-<h2>Configuration Basics<a class="headerlink" href="#configuration-basics" title="Permalink to this headline"></a></h2>
+<h2>Configuration Basics<a class="headerlink" href="#configuration-basics" title="Permalink to this heading"></a></h2>
 <p>How does the configuration work? To understand this we need a short introduction to Breakers calculations
 and how how it affects the breaking speeds.</p>
 <div class="line-block">
@@ -170,7 +171,7 @@ and how how it affects the breaking speeds.</p>
 </li>
 </ul>
 <section id="block-configurations">
-<h3>Block Configurations<a class="headerlink" href="#block-configurations" title="Permalink to this headline"></a></h3>
+<h3>Block Configurations<a class="headerlink" href="#block-configurations" title="Permalink to this heading"></a></h3>
 <p>Breaker loads any <code class="docutils literal notranslate"><span class="pre">.yml</span></code> configuration file inside the <code class="docutils literal notranslate"><span class="pre">blocks</span></code> folder (inside <code class="docutils literal notranslate"><span class="pre">plugins/Breaker</span></code>) and loads it into the
 <abbr title="This is where Breaker stores the data for each block you configure.">Breaker Database</abbr>. Breaker will list any errors with your configuration in the console.</p>
 <div class="admonition note">
@@ -183,7 +184,7 @@ and how how it affects the breaking speeds.</p>
 </div>
 </section>
 <section id="example-config-file">
-<h3>Example Config File<a class="headerlink" href="#example-config-file" title="Permalink to this headline"></a></h3>
+<h3>Example Config File<a class="headerlink" href="#example-config-file" title="Permalink to this heading"></a></h3>
 <div class="line-block">
 <div class="line">Let’s go through the basics of each <code class="docutils literal notranslate"><span class="pre">.yml</span></code> file.</div>
 <div class="line">Have a look at this example file:</div>
@@ -221,14 +222,14 @@ and how how it affects the breaking speeds.</p>
 </section>
 <hr class="docutils" />
 <section id="configuring-the-block-provider">
-<h2>Configuring the Block Provider<a class="headerlink" href="#configuring-the-block-provider" title="Permalink to this headline"></a></h2>
+<h2>Configuring the Block Provider<a class="headerlink" href="#configuring-the-block-provider" title="Permalink to this heading"></a></h2>
 <p>The first line <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">IRON_BLOCK</span></code> represents the <a class="reference internal" href="../mechanics/providers.html#doc-mechanics-providers"><span class="std std-ref">Block Provider</span></a> and is currently using the Material provider.
 For example, setting this as <code class="docutils literal notranslate"><span class="pre">GOLD_BLOCK</span></code> will make all Gold Blocks use this configuration for their breaking times (Instead of Iron Blocks as seen in the example).</p>
 <p>For a better understanding of how to configure this, please see the <a class="reference internal" href="../mechanics/providers.html#doc-mechanics-providers"><span class="std std-ref">Block Provider</span></a> page.</p>
 <hr class="docutils" />
 </section>
 <section id="configuring-the-hardness">
-<span id="doc-quickstart-configuration-hardness"></span><h2>Configuring the Hardness<a class="headerlink" href="#configuring-the-hardness" title="Permalink to this headline"></a></h2>
+<span id="doc-quickstart-configuration-hardness"></span><h2>Configuring the Hardness<a class="headerlink" href="#configuring-the-hardness" title="Permalink to this heading"></a></h2>
 <p>The next section (<code class="docutils literal notranslate"><span class="pre">hardness:</span></code>) determines how long it takes to break the block. You need to configure <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">base</span></code>.</p>
 <ul class="simple">
 <li><p><strong>max</strong>: This is the absolute longest it will ever take to break this block. No matter how states are configured the breaking time will never be longer than this.</p></li>
@@ -239,10 +240,15 @@ For example, setting this as <code class="docutils literal notranslate"><span cl
 <p class="admonition-title">Tip</p>
 <p>Hardness is measured in ticks. 20 ticks is the same as 1 second.</p>
 </div>
+<div class="admonition-ref-configuring-hardness-with-mythicmobs-doc-mythic-hardness admonition">
+<p class="admonition-title"><a class="reference internal" href="../mechanics/mythichardness.html#doc-mythic-hardness"><span class="std std-ref">Configuring Hardness with MythicMobs</span></a></p>
+<p>If you have <strong>MythicMobs</strong> installed, you can use the variable system to control the hardness value of your blocks.</p>
+<p>See <a class="reference internal" href="../mechanics/mythichardness.html#doc-mythic-hardness"><span class="std std-ref">Configuring Hardness with MythicMobs</span></a>.</p>
+</div>
 <hr class="docutils" />
 </section>
 <section id="configuring-the-states">
-<span id="doc-quickstart-configuration-states"></span><h2>Configuring the States<a class="headerlink" href="#configuring-the-states" title="Permalink to this headline"></a></h2>
+<span id="doc-quickstart-configuration-states"></span><h2>Configuring the States<a class="headerlink" href="#configuring-the-states" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See <a class="reference internal" href="../states/builtin.html#doc-states-builtin"><span class="std std-ref">Built-In States</span></a> or <a class="reference internal" href="../states/external.html#doc-states-external"><span class="std std-ref">External Plugin States</span></a> for a list of usable state types.</p>
@@ -271,7 +277,7 @@ Arguments change depending on which state type you use. There are two arguments 
 <hr class="docutils" />
 </section>
 <section id="configuring-the-triggers">
-<span id="doc-quickstart-configuration-triggers"></span><h2>Configuring the Triggers<a class="headerlink" href="#configuring-the-triggers" title="Permalink to this headline"></a></h2>
+<span id="doc-quickstart-configuration-triggers"></span><h2>Configuring the Triggers<a class="headerlink" href="#configuring-the-triggers" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See <a class="reference internal" href="../mechanics/triggers.html#doc-mechanics-triggers"><span class="std std-ref">Triggers</span></a> for a list of usable triggers and functions.</p>

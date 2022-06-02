@@ -11,6 +11,7 @@ External Plugins
   | MMOCore provides a few :ref:`states <states_mmocore>` related to features like level, experience, professions, classes and more.
 - | **MythicMobs**:
   | MythicMobs provides a few :ref:`advanced states <states_mythicmobs>` and a new :ref:`trigger function <doc_mechanics_triggers>`.
+  | It also allows you to :ref:`control block hardness with variables <doc_mythic_hardness>`.
 - | **TechTree**:
   | Vault provides a simple :ref:`techentry state <state_techentry>` to check if a player has unlocked a specific entry.
 - | **Vault**:

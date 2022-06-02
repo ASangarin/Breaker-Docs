@@ -99,6 +99,12 @@ The next section (``hardness:``) determines how long it takes to break the block
 
 .. tip:: Hardness is measured in ticks. 20 ticks is the same as 1 second.
 
+.. admonition:: :ref:`Configuring Hardness with MythicMobs <doc_mythic_hardness>`
+
+    If you have **MythicMobs** installed, you can use the variable system to control the hardness value of your blocks.
+
+    See :ref:`Configuring Hardness with MythicMobs <doc_mythic_hardness>`.
+
 -------------------------
 
 .. _doc_quickstart_configuration_states:
