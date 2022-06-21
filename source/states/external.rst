@@ -19,8 +19,7 @@ Type                                    Plugin       Args
 :ref:`mmopoint<state_mmopoint>`         MMOCore      :abbr:`type (String)`, :abbr:`amount (Integer)`
 :ref:`mmoprof<state_mmoprof>`           MMOCore      :abbr:`name (String)`, :abbr:`level (Integer)`
 :ref:`mmoresource<state_mmoresource>`   MMOCore      :abbr:`type (String)`, :abbr:`amount (Integer)`
-:ref:`mmcast<state_mmcast>`             MythicMobs   :abbr:`skill (String)`
-:ref:`mmvar<state_mmvar>`               MythicMobs   :abbr:`key (String)`, :abbr:`varval (Double)`, :abbr:`higherthan (Boolean)`
+:ref:`mmostat<state_mmostat>`           MythicLib    :abbr:`stat (String)`, :abbr:`statval (Double)`, :abbr:`higherthan (Boolean)`
 :ref:`techentry<state_techentry>`       TechTree     :abbr:`entry (String)`
 :ref:`money<state_money>`               Vault        :abbr:`amount (Double)`
 :ref:`region<state_region>`             WorldGuard   :abbr:`name (String)`
@@ -147,48 +146,32 @@ amount      Integer      ---
 
 ----
 
-.. _states_mythicmobs:
+.. _states_mythiclib:
 
-MythicMobs
+MythicLib
 -------------
 
-These are the states provided by `MythicMobs <https://mythiccraft.io/index.php?resources/mythicmobs.1/>`_.
+These are the states provided by `MythicLib <https://mythiccraft.io/index.php?resources/mythiclib.403/>`_.
 
 ----
 
-.. _state_mmcast:
+.. _state_mmostat:
 
-- ``mmcast``
+- ``mmostat``
 
-| Will check if the player is currently able to cast a specific MythicMobs skill.
+| Checks if the players specified stat is at a specific (or higher) level.
+| This hooks into the MythicLib stat API and can therefore look up any MMO stat.
 
 =========== ============ =
 Argument    Type         Notes
 =========== ============ =
-skill       String       Must be a valid MythicMobs skill
+stat        String       Stat names can be found on their respective plugin wikis.
+statval       Double     ---
+higherthan  Boolean      Will also check if the stat is higher
 =========== ============ =
 
-| **Example:** ``mmcast{skill=TestSkill}``
-| The player must meet all the conditions for casting "TestSkill".
-
-----
-
-.. _state_mmvar:
-
-- ``mmvar``
-
-| Will compare a numeric MythicMobs variable with the specified value.
-
-=========== ============ =
-Argument    Type         Notes
-=========== ============ =
-key         String       Must be a valid MythicMobs variable
-varval      Integer      ---
-higherthan  Boolean      Will also check if the variable is higher
-=========== ============ =
-
-| **Example:** ``mmvar{key=test;varval=10;higherthan=true}``
-| The MythicMobs variable "test" must be 10 or higher.
+| **Example:** ``mmostat{stat=max_health;statval=30;higherthan=true}``
+| The player must have a max health stat of 30 or higher.
 
 ----
 

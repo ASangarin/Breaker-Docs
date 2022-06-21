@@ -16,3 +16,8 @@ This section simply describes the contents of the :ref:`Configuration <doc_quick
    - **max**: This is the absolute longest it will ever take to break a block. No matter how states are configured the breaking time will never be longer than this.
    - **min**: This is the absolute shortest it will ever take to break a block. No matter how states are configured the breaking time will never be shorter than this.
    - **base**: This is how long it will take to break a block when no states have been activated.
+
+.. note::
+    You can also use the MM variable system to control the hardness value of your blocks.
+
+    See :ref:`Configuring Hardness with MythicMobs <doc_mythic_hardness>`.

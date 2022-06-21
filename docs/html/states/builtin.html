@@ -94,7 +94,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="external.html">External Plugin States</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="external.html#mmocore">MMOCore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="external.html#mythicmobs">MythicMobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external.html#mythiclib">MythicLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="external.html#techtree">TechTree</a></li>
 <li class="toctree-l2"><a class="reference internal" href="external.html#vault">Vault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="external.html#worldguard">WorldGuard</a></li>
@@ -142,8 +142,8 @@
 <p><strong>Quick Reference:</strong></p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
+<col style="width: 33%" />
+<col style="width: 67%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -187,16 +187,19 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#state-permission"><span class="std std-ref">permission</span></a></p></td>
 <td><p><abbr title="String">node</abbr></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#state-mmostat"><span class="std std-ref">mmostat</span></a></p></td>
-<td><p><abbr title="String">stat</abbr>, <abbr title="Double">statval</abbr>, <abbr title="Boolean">higherthan</abbr></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-mmcast"><span class="std std-ref">mmcast</span></a></p></td>
+<td><p><abbr title="String">skill</abbr></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#state-nbtstr"><span class="std std-ref">nbtstr</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-mmvar"><span class="std std-ref">mmvar</span></a></p></td>
+<td><p><abbr title="String">key</abbr>, <abbr title="Double">varval</abbr>, <abbr title="Boolean">higherthan</abbr></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-nbtstr"><span class="std std-ref">nbtstr</span></a></p></td>
 <td><p><abbr title="String">key</abbr>, <abbr title="String">nbtval</abbr></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#state-nbtbool"><span class="std std-ref">nbtbool</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#state-nbtbool"><span class="std std-ref">nbtbool</span></a></p></td>
 <td><p><abbr title="String">key</abbr>, <abbr title="Boolean">nbtval</abbr></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#state-nbtval"><span class="std std-ref">nbtval</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#state-nbtval"><span class="std std-ref">nbtval</span></a></p></td>
 <td><p><abbr title="String">key</abbr>, <abbr title="Integer">nbtval</abbr></p></td>
 </tr>
 </tbody>
@@ -517,18 +520,17 @@
 <div class="line">Checks if the player has the <code class="docutils literal notranslate"><span class="pre">breaker.test.perm</span></code> permission.</div>
 </div>
 <hr class="docutils" />
-<ul class="simple" id="state-mmostat">
-<li><p><code class="docutils literal notranslate"><span class="pre">mmostat</span></code></p></li>
+<ul class="simple" id="state-mmcast">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmcast</span></code></p></li>
 </ul>
 <div class="line-block">
-<div class="line">Checks if the players specified stat is at a specific (or higher) level.</div>
-<div class="line">This hooks into the MythicLib stat API and can therefore look up any MMO stat.</div>
+<div class="line">Will check if the player is currently able to cast a specific MythicMobs skill.</div>
 </div>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 15%" />
-<col style="width: 71%" />
+<col style="width: 20%" />
+<col style="width: 22%" />
+<col style="width: 58%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Argument</p></th>
@@ -537,23 +539,53 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>stat</p></td>
+<tr class="row-even"><td><p>skill</p></td>
 <td><p>String</p></td>
-<td><p>Stat names can be found on their respective plugin wikis.</p></td>
-</tr>
-<tr class="row-odd"><td><p>statval</p></td>
-<td><p>Double</p></td>
-<td><p>—</p></td>
-</tr>
-<tr class="row-even"><td><p>higherthan</p></td>
-<td><p>Boolean</p></td>
-<td><p>Will also check if the stat is higher</p></td>
+<td><p>Must be a valid MythicMobs skill</p></td>
 </tr>
 </tbody>
 </table>
 <div class="line-block">
-<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmostat{stat=max_health;statval=30;higherthan=true}</span></code></div>
-<div class="line">The player must have a max health stat of 30 or higher.</div>
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmcast{skill=TestSkill}</span></code></div>
+<div class="line">The player must meet all the conditions for casting “TestSkill”.</div>
+</div>
+<hr class="docutils" />
+<ul class="simple" id="state-mmvar">
+<li><p><code class="docutils literal notranslate"><span class="pre">mmvar</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line">Will compare a numeric MythicMobs variable with the specified value.</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 19%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>key</p></td>
+<td><p>String</p></td>
+<td><p>Must be a valid MythicMobs variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>varval</p></td>
+<td><p>Integer</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-even"><td><p>higherthan</p></td>
+<td><p>Boolean</p></td>
+<td><p>Will also check if the variable is higher</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">mmvar{key=test;varval=10;higherthan=true}</span></code></div>
+<div class="line">The MythicMobs variable “test” must be 10 or higher.</div>
 </div>
 <hr class="docutils" />
 <ul class="simple" id="state-nbtstr">

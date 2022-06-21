@@ -22,7 +22,8 @@ Type                                  Args
 :ref:`rain<state_rain>`               :abbr:`thunder (Boolean)`
 :ref:`world<state_world>`             :abbr:`name (String)`
 :ref:`permission<state_permission>`   :abbr:`node (String)`
-:ref:`mmostat<state_mmostat>`         :abbr:`stat (String)`, :abbr:`statval (Double)`, :abbr:`higherthan (Boolean)`
+:ref:`mmcast<state_mmcast>`           :abbr:`skill (String)`
+:ref:`mmvar<state_mmvar>`             :abbr:`key (String)`, :abbr:`varval (Double)`, :abbr:`higherthan (Boolean)`
 :ref:`nbtstr<state_nbtstr>`           :abbr:`key (String)`, :abbr:`nbtval (String)`
 :ref:`nbtbool<state_nbtbool>`         :abbr:`key (String)`, :abbr:`nbtval (Boolean)`
 :ref:`nbtval<state_nbtval>`           :abbr:`key (String)`, :abbr:`nbtval (Integer)`
@@ -233,23 +234,39 @@ node        String       ---
 
 ----
 
-.. _state_mmostat:
+.. _state_mmcast:
 
-- ``mmostat``
+- ``mmcast``
 
-| Checks if the players specified stat is at a specific (or higher) level.
-| This hooks into the MythicLib stat API and can therefore look up any MMO stat.
+| Will check if the player is currently able to cast a specific MythicMobs skill.
 
 =========== ============ =
 Argument    Type         Notes
 =========== ============ =
-stat        String       Stat names can be found on their respective plugin wikis.
-statval       Double     ---
-higherthan  Boolean      Will also check if the stat is higher
+skill       String       Must be a valid MythicMobs skill
 =========== ============ =
 
-| **Example:** ``mmostat{stat=max_health;statval=30;higherthan=true}``
-| The player must have a max health stat of 30 or higher.
+| **Example:** ``mmcast{skill=TestSkill}``
+| The player must meet all the conditions for casting "TestSkill".
+
+----
+
+.. _state_mmvar:
+
+- ``mmvar``
+
+| Will compare a numeric MythicMobs variable with the specified value.
+
+=========== ============ =
+Argument    Type         Notes
+=========== ============ =
+key         String       Must be a valid MythicMobs variable
+varval      Integer      ---
+higherthan  Boolean      Will also check if the variable is higher
+=========== ============ =
+
+| **Example:** ``mmvar{key=test;varval=10;higherthan=true}``
+| The MythicMobs variable "test" must be 10 or higher.
 
 ----
 
