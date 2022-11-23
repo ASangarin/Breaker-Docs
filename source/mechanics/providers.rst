@@ -4,12 +4,12 @@ Block Providers
 ===============
 
 Breaker features a unqiue block selection system, that allows
-you to specify exactly what blocks are affected and which aren't.
+you to specify exactly which blocks are affected and which aren't.
 This system works by using something called a **Block Provider**.
 
 ------------------
 
-Each **Block Provider** has a different syntax for connecting with their respective blocks.
+Each **Block Provider** has a different syntax for connecting with their respective blocks.  
 For a better understanding, read through each individual Block Provider.
 
 ----
@@ -24,6 +24,13 @@ values to specify which block to bind your configuration to.
 Using this provider is simple as you just need to input name of the desired block.
 
 .. note:: **Example**: ``block: IRON_BLOCK``
+
+You can also specify this further, by adding blockstates to your configuration.  
+This allows you to have unique breaking speeds for the same type of block, depending on the current `BlockState <https://minecraft.fandom.com/wiki/Block_states>`_.
+
+.. tip:: You can easily see the properties of a blockstate when in the F3 debug menu!
+
+.. note:: **Example**: ``block: NOTE_BLOCK[instrument=harp,note=2]``
 
 ----
 
@@ -60,3 +67,15 @@ The **MMOItems Block Provider** will allow you to add configuration to MMOItems 
 Simply input ``MMOITEMS_`` followed by the numeric ID assigned to your block.
 
 .. note:: **Example**: ``block: MMOITEMS_13``
+
+----
+
+Crucible Block Provider
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning:: Requires `Crucible <https://mythiccraft.io/index.php?resources/crucible-create-unbelievable-mythic-items.2/>`_
+
+The **Crucible Block Provider** will allow you to add configuration to Crucible Custom Blocks.
+Simply input ``CRUCIBLE_`` followed by the numeric ID assigned to your block.
+
+.. note:: **Example**: ``block: CRUCIBLE_13``

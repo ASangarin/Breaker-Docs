@@ -74,6 +74,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#tag-block-provider">Tag Block Provider</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#player-head-block-provider">Player Head Block Provider</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mmoitems-block-provider">MMOItems Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#crucible-block-provider">Crucible Block Provider</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="states.html">States</a><ul>
@@ -94,7 +95,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../states/external.html">External Plugin States</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../states/external.html#mmocore">MMOCore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mythicmobs">MythicMobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mythiclib">MythicLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../states/external.html#techtree">TechTree</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../states/external.html#vault">Vault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../states/external.html#worldguard">WorldGuard</a></li>
@@ -121,8 +122,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Block Providers</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Block Providers</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -134,7 +135,7 @@
   <section id="block-providers">
 <span id="doc-mechanics-providers"></span><h1>Block Providers<a class="headerlink" href="#block-providers" title="Permalink to this heading"></a></h1>
 <p>Breaker features a unqiue block selection system, that allows
-you to specify exactly what blocks are affected and which aren’t.
+you to specify exactly which blocks are affected and which aren’t.
 This system works by using something called a <strong>Block Provider</strong>.</p>
 <hr class="docutils" />
 <p>Each <strong>Block Provider</strong> has a different syntax for connecting with their respective blocks.
@@ -149,6 +150,16 @@ values to specify which block to bind your configuration to.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">IRON_BLOCK</span></code></p>
+</div>
+<p>You can also specify this further, by adding blockstates to your configuration.
+This allows you to have unique breaking speeds for the same type of block, depending on the current <a class="reference external" href="https://minecraft.fandom.com/wiki/Block_states">BlockState</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can easily see the properties of a blockstate when in the F3 debug menu!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">NOTE_BLOCK[instrument=harp,note=2]</span></code></p>
 </div>
 </section>
 <hr class="docutils" />
@@ -188,6 +199,20 @@ Simply input <code class="docutils literal notranslate"><span class="pre">MMOITE
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">MMOITEMS_13</span></code></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="crucible-block-provider">
+<h2>Crucible Block Provider<a class="headerlink" href="#crucible-block-provider" title="Permalink to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Requires <a class="reference external" href="https://mythiccraft.io/index.php?resources/crucible-create-unbelievable-mythic-items.2/">Crucible</a></p>
+</div>
+<p>The <strong>Crucible Block Provider</strong> will allow you to add configuration to Crucible Custom Blocks.
+Simply input <code class="docutils literal notranslate"><span class="pre">CRUCIBLE_</span></code> followed by the numeric ID assigned to your block.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">block:</span> <span class="pre">CRUCIBLE_13</span></code></p>
 </div>
 </section>
 </section>

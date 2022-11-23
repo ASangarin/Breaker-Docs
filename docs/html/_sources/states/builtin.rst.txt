@@ -112,7 +112,7 @@ Argument    Type         Notes
 type        String       Must be a valid `material <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html>`_
 =========== ============ =
 
-| **Example:** ``type{type=stick}``
+| **Example:** ``helditem{type=stick}``
 | Checks if the player is holding a Stick.
 
 ----
