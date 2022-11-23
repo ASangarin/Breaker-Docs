@@ -1,6 +1,6 @@
 Home
 ========================
-.. note:: | Docs Version: **1.4** - Breaker Version: **2.4**
+.. note:: | Docs Version: **1.4** - Breaker Version: **2.7**
           | *Last updated* ``November 23rd, 2022``
 
 .. important:: Remember to backup/delete your ``plugins/Breaker`` folder when upgrading from Legacy Breaker!
