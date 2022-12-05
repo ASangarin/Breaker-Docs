@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enchantment IDs &mdash; Breaker Official Docs 1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/algolia.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/custom.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+        <script defer="defer" src="../_static/js/algolia.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/docs_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/installation.html#list-of-compatible-plugins">List of Compatible Plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/configuration.html#configuration-basics">Configuration Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart/configuration.html#block-configurations">Block Configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart/configuration.html#example-config-file">Example Config File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/configuration.html#configuring-the-block-provider">Configuring the Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/configuration.html#configuring-the-hardness">Configuring the Hardness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/configuration.html#configuring-the-states">Configuring the States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/configuration.html#configuring-the-triggers">Configuring the Triggers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/important.html">Important Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/externalplugins.html">External Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Terms &amp; Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hardness.html">Hardness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="providers.html">Block Providers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="providers.html#material-block-provider">Material Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="providers.html#tag-block-provider">Tag Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="providers.html#player-head-block-provider">Player Head Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="providers.html#mmoitems-block-provider">MMOItems Block Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="providers.html#crucible-block-provider">Crucible Block Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="states.html">States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="states.html#available-states">Available States</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="triggers.html">Triggers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="triggers.html#trigger-types">Trigger Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="triggers.html#trigger-functions">Trigger Functions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Available States</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../states/builtin.html">Built-In States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../states/builtin.html#descriptions">Descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../states/external.html">External Plugin States</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mmocore">MMOCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#mythiclib">MythicLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#techtree">TechTree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#vault">Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../states/external.html#worldguard">WorldGuard</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/providers.html">Providers [API]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/states.html">States [API]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/triggers.html">Triggers [API]</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Breaker Official Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Enchantment IDs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enchantment-ids">
+<span id="doc-enchantment-ids"></span><h1>Enchantment IDs<a class="headerlink" href="#enchantment-ids" title="Permalink to this heading"></a></h1>
+<p><strong>Tools</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 69%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Enchantment</p></th>
+<th class="head"><p>ID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Efficiency</p></td>
+<td><p>efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fortune</p></td>
+<td><p>fortune</p></td>
+</tr>
+<tr class="row-even"><td><p>Silk Touch</p></td>
+<td><p>silk_touch</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p><strong>Miscellaneous</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 69%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Enchantment</p></th>
+<th class="head"><p>ID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Knockback</p></td>
+<td><p>knockback</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mending</p></td>
+<td><p>mending</p></td>
+</tr>
+<tr class="row-even"><td><p>Unbreaking</p></td>
+<td><p>unbreaking</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p><strong>Weapons</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Enchantment</p></th>
+<th class="head"><p>ID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bane of Arthropods</p></td>
+<td><p>bane_of_arthropods</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fire Aspect</p></td>
+<td><p>fire_aspect</p></td>
+</tr>
+<tr class="row-even"><td><p>Looting</p></td>
+<td><p>looting</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sharpness</p></td>
+<td><p>sharpness</p></td>
+</tr>
+<tr class="row-even"><td><p>Smite</p></td>
+<td><p>smite</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sweeping Edge</p></td>
+<td><p>sweeping</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p><strong>Bows &amp; Crossbows</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 65%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Enchantment</p></th>
+<th class="head"><p>ID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Flame</p></td>
+<td><p>flame</p></td>
+</tr>
+<tr class="row-odd"><td><p>Infinity</p></td>
+<td><p>infinity</p></td>
+</tr>
+<tr class="row-even"><td><p>Power</p></td>
+<td><p>power</p></td>
+</tr>
+<tr class="row-odd"><td><p>Punch</p></td>
+<td><p>punch</p></td>
+</tr>
+<tr class="row-even"><td><p>—</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p>Multishot</p></td>
+<td><p>multishot</p></td>
+</tr>
+<tr class="row-even"><td><p>Piercing</p></td>
+<td><p>piercing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Quick Charge</p></td>
+<td><p>quick_charge</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p><strong>Fishing Rods &amp; Tridents</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 59%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Enchantment</p></th>
+<th class="head"><p>ID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Luck of the Sea</p></td>
+<td><p>luck_of_the_sea</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lure</p></td>
+<td><p>lure</p></td>
+</tr>
+<tr class="row-even"><td><p>—</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p>Channeling</p></td>
+<td><p>channeling</p></td>
+</tr>
+<tr class="row-even"><td><p>Impaling</p></td>
+<td><p>impaling</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loyalty</p></td>
+<td><p>loyalty</p></td>
+</tr>
+<tr class="row-even"><td><p>Riptide</p></td>
+<td><p>riptide</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p><strong>Curses</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 59%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Enchantment</p></th>
+<th class="head"><p>ID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Curse of Binding</p></td>
+<td><p>binding_curse</p></td>
+</tr>
+<tr class="row-odd"><td><p>Curse of Vanishing</p></td>
+<td><p>vanishing_curse</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p><strong>Armor</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 51%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Enchantment</p></th>
+<th class="head"><p>ID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Protection</p></td>
+<td><p>protection</p></td>
+</tr>
+<tr class="row-odd"><td><p>Blast Protection</p></td>
+<td><p>blast_protection</p></td>
+</tr>
+<tr class="row-even"><td><p>Fire Protection</p></td>
+<td><p>fire_protection</p></td>
+</tr>
+<tr class="row-odd"><td><p>Projectile Protection</p></td>
+<td><p>projectile_protection</p></td>
+</tr>
+<tr class="row-even"><td><p>—</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aqua Affinity</p></td>
+<td><p>aqua_affinity</p></td>
+</tr>
+<tr class="row-even"><td><p>Depth Strider</p></td>
+<td><p>depth_strider</p></td>
+</tr>
+<tr class="row-odd"><td><p>Feather Falling</p></td>
+<td><p>feather_falling</p></td>
+</tr>
+<tr class="row-even"><td><p>Frost Walker</p></td>
+<td><p>frost_walker</p></td>
+</tr>
+<tr class="row-odd"><td><p>Respiration</p></td>
+<td><p>respiration</p></td>
+</tr>
+<tr class="row-even"><td><p>Soul Speed</p></td>
+<td><p>soul_speed</p></td>
+</tr>
+<tr class="row-odd"><td><p>Swift Sneak</p></td>
+<td><p>swift_sneak</p></td>
+</tr>
+<tr class="row-even"><td><p>Thorns</p></td>
+<td><p>thorns</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ASangarin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

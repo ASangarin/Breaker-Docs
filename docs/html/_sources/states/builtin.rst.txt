@@ -69,11 +69,11 @@ level       Integer      ---
 =========== ============ =
 Argument    Type         Notes
 =========== ============ =
-type        String       Must be a valid `enchantment <https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html>`_
+type        String       Must be a valid :ref:`enchantment <doc_enchantment_ids>`
 level       Integer      ---
 =========== ============ =
 
-| **Example:** ``enchant{type=DIG_SPEED;level=2}``
+| **Example:** ``enchant{type=efficiency;level=2}``
 | The item must have the Efficiency enchantment at level 2 or higher.
 
 | You can also specify a custom enchantment by providing a namespace and a key.
