@@ -1,7 +1,7 @@
 Home
 ========================
-.. note:: | Docs Version: **1.4** - Breaker Version: **2.7**
-          | *Last updated* ``November 23rd, 2022``
+.. note:: | Docs Version: **1.4** - Breaker Version: **2.8**
+          | *Last updated* ``December 27th, 2022``
 
 .. important:: Remember to backup/delete your ``plugins/Breaker`` folder when upgrading from Legacy Breaker!
                Old configs won't work on Breaker 2.0, but can be used as reference when setting up.
